@@ -8,7 +8,16 @@ export default function Document() {
         <meta charSet="utf-8" />
 
         {/* Top black bar */}
-        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <meta name="apple-mobile-web-app-capable" content="yes"></meta>
+        <meta
+          name="apple-mobile-web-app-status-bar-style"
+          content="black-translucent"
+        />
+        <meta
+          name="theme-color"
+          content="#000000"
+          media="(prefers-color-scheme: dark)"
+        />
 
         {/* Favicon */}
         <link
