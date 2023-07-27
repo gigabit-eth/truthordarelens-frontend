@@ -29,7 +29,23 @@ export default function BottomNav() {
   );
 }
 
-function QuestionIcon() {
+type QuestionIconProps = {
+  className?: string;
+};
+
+type VoteIconProps = {
+  className?: string;
+};
+
+type CreateIconProps = {
+  className?: string;
+};
+
+type SettingsIconProps = {
+  className?: string;
+};
+
+function QuestionIcon({ className }: QuestionIconProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -48,7 +64,7 @@ function QuestionIcon() {
 
 function QuestionIconEmpty() {}
 
-function VoteIcon() {
+function VoteIcon({ className }: VoteIconProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -63,7 +79,7 @@ function VoteIcon() {
 
 function VoteIconEmpty() {}
 
-function CreateIcon() {
+function CreateIcon({ className }: CreateIconProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -82,7 +98,7 @@ function CreateIcon() {
 
 function CreateIconEmpty() {}
 
-function SettingsIcon() {
+function SettingsIcon({ className }: SettingsIconProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
