@@ -24,6 +24,11 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <TopNav />
+      <div className="flex flex-col items-center justify-center w-full h-full">
+        <h1 className="text-4xl font-bold text-center text-gray-900 dark:text-gray-100">
+          Main
+        </h1>
+      </div>
       <BottomNav />
     </main>
   );
