@@ -35,3 +35,10 @@ body {
 [data-rk] [aria-labelledby="rk_connect_title"] {
   z-index: 2147483645 !important;
 }
+
+/* Ensure we have enough pixel height to not block elements when running in standalone mode */
+@media screen and (display-mode: standalone) {
+  header {
+    height: 88px !important;
+  }
+}

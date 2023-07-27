@@ -21,7 +21,10 @@ export default function Home() {
       <Head>
         <title>{SITE_NAME}</title>
         <meta name="description" content={SITE_DESCRIPTION} />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, view-port-fit=cover"
+        />
       </Head>
       <TopNav />
       <div className="flex flex-col items-center justify-center w-full h-full">
