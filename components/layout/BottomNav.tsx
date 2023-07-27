@@ -1,30 +1,32 @@
+import Link from "next/link";
+
 export default function BottomNav() {
   return (
     <footer className="fixed inset-x-0 bottom-0 flex w-full border-t border-gray-300 bg-gradient-to-t from-zinc-200 dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:border lg:bg-gray-200 lg:dark:bg-zinc-800/30">
-      <a
+      <Link
         className="flex items-center justify-center w-1/4 py-4 text-center"
-        href="/ "
+        href="/"
       >
         <QuestionIcon className="p-px w-7 h-7" />
-      </a>
-      <a
+      </Link>
+      <Link
         className="flex items-center justify-center w-1/4 py-4 text-center border-l-2 border-zinc-800"
         href="/vote"
       >
         <VoteIcon className="p-px w-7 h-7" />
-      </a>
-      <a
+      </Link>
+      <Link
         className="flex items-center justify-center w-1/4 py-4 text-center border-l-2 border-zinc-800"
         href="/add"
       >
         <CreateIcon className="p-px w-7 h-7" />
-      </a>
-      <a
+      </Link>
+      <Link
         className="flex items-center justify-center w-1/4 py-4 text-center border-l-2 border-zinc-800"
         href="/settings"
       >
         <SettingsIcon className="p-px w-7 h-7" />
-      </a>
+      </Link>
     </footer>
   );
 }
