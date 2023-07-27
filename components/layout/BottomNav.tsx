@@ -4,25 +4,31 @@ export default function BottomNav() {
   return (
     <footer className="fixed inset-x-0 bottom-0 flex w-full border-t border-gray-300 bg-gradient-to-t from-zinc-200 dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:border lg:bg-gray-200 lg:dark:bg-zinc-800/30">
       <Link
-        className="flex items-center justify-center w-1/4 py-4 text-center"
+        className="flex items-center justify-center w-1/5 py-4 text-center"
         href="/"
       >
         <QuestionIcon className="p-px w-7 h-7" />
       </Link>
       <Link
-        className="flex items-center justify-center w-1/4 py-4 text-center border-l-2 border-zinc-800"
+        className="flex items-center justify-center w-1/5 py-4 text-center border-l-2 border-zinc-800"
         href="/vote"
       >
         <VoteIcon className="p-px w-7 h-7" />
       </Link>
       <Link
-        className="flex items-center justify-center w-1/4 py-4 text-center border-l-2 border-zinc-800"
+        className="flex items-center justify-center w-1/5 py-4 text-center border-l-2 border-zinc-800"
         href="/add"
       >
         <CreateIcon className="p-px w-7 h-7" />
       </Link>
       <Link
-        className="flex items-center justify-center w-1/4 py-4 text-center border-l-2 border-zinc-800"
+        className="flex items-center justify-center w-1/5 py-4 text-center border-l-2 border-zinc-800"
+        href="/shop"
+      >
+        <ShopIcon className="p-px w-7 h-7" />
+      </Link>
+      <Link
+        className="flex items-center justify-center w-1/5 py-4 text-center border-l-2 border-zinc-800"
         href="/settings"
       >
         <SettingsIcon className="p-px w-7 h-7" />
@@ -40,6 +46,10 @@ type VoteIconProps = {
 };
 
 type CreateIconProps = {
+  className?: string;
+};
+
+type ShopIconProps = {
   className?: string;
 };
 
@@ -99,6 +109,25 @@ function CreateIcon({ className }: CreateIconProps) {
 }
 
 function CreateIconEmpty() {}
+
+function ShopIcon({ className }: ShopIconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      className="w-6 h-6"
+    >
+      <path
+        fillRule="evenodd"
+        d="M7.5 6v.75H5.513c-.96 0-1.764.724-1.865 1.679l-1.263 12A1.875 1.875 0 004.25 22.5h15.5a1.875 1.875 0 001.865-2.071l-1.263-12a1.875 1.875 0 00-1.865-1.679H16.5V6a4.5 4.5 0 10-9 0zM12 3a3 3 0 00-3 3v.75h6V6a3 3 0 00-3-3zm-3 8.25a3 3 0 106 0v-.75a.75.75 0 011.5 0v.75a4.5 4.5 0 11-9 0v-.75a.75.75 0 011.5 0v.75z"
+        clipRule="evenodd"
+      />
+    </svg>
+  );
+}
+
+function ShopIconEmpty() {}
 
 function SettingsIcon({ className }: SettingsIconProps) {
   return (
