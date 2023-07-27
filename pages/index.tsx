@@ -23,7 +23,7 @@ export default function Home() {
         <meta name="description" content={SITE_DESCRIPTION} />
         <meta
           name="viewport"
-          content="width=device-width, initial-scale=1, view-port-fit=cover"
+          content="width=device-width, initial-scale=1, view-port-fit=cover, user-scalable=no"
         />
       </Head>
       <TopNav />

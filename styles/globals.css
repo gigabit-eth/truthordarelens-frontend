@@ -41,4 +41,7 @@ body {
   header {
     height: 88px !important;
   }
+  footer {
+    padding-bottom: calc(20px + env(safe-area-inset-bottom));
+  }
 }
