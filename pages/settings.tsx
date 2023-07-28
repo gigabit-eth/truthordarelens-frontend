@@ -9,6 +9,7 @@ export default function Settings() {
         <h1 className="text-4xl font-bold text-center text-gray-900 dark:text-gray-100">
           Settings
         </h1>
+        <h3 className="tracking-widest">menu</h3>
       </div>
       <BottomNav />
     </main>

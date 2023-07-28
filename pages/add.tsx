@@ -9,6 +9,7 @@ export default function Create() {
         <h1 className="text-4xl font-bold text-center text-gray-900 dark:text-gray-100">
           Add
         </h1>
+        <h3 className="tracking-widest">questions</h3>
       </div>
       <BottomNav />
     </main>

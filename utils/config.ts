@@ -12,16 +12,16 @@ import {
 } from "wagmi/chains";
 
 export const ETH_CHAINS = [
-  mainnet,
+  // mainnet,
   polygon,
-  sepolia,
-  polygonMumbai,
-  polygonZkEvm,
-  polygonZkEvmTestnet,
-  bsc,
-  bscTestnet,
-  arbitrum,
-  arbitrumGoerli,
+  // sepolia,
+  // polygonMumbai,
+  // polygonZkEvm,
+  // polygonZkEvmTestnet,
+  // bsc,
+  // bscTestnet,
+  // arbitrum,
+  // arbitrumGoerli,
 ];
 export const WALLET_CONNECT_PROJECT_ID =
   process.env.NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID || "";
@@ -31,8 +31,8 @@ export const SITE_DESCRIPTION =
   "Get to know your friends better, or make new ones, the game of truth or dare for the Lens Protocol. ";
 export const SITE_URL = "https://truthordare.lol";
 
-export const SOCIAL_TWITTER = "Envoy_1084";
-export const SOCIAL_GITHUB = "Envoy-VC/boilr3";
+export const SOCIAL_TWITTER = "";
+export const SOCIAL_GITHUB = "";
 
 export const NFT_CONTRACT_ADDRESS =
   "0x0Fc5f8A784810dEd101BD734cC59F6F7b868A3AF";
