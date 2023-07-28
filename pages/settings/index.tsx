@@ -60,7 +60,7 @@ export default function Settings() {
         </h1>
         <h3 className="tracking-widest">menu</h3>
       </div>
-      <div className="w-full flex flex-col lg:flex-row gap-6 mt-24 flex-wrap justify-center items-center">
+      <div className="w-full grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-6 mt-24 justify-center items-center">
         {examples.map((example, index) => (
           <Card {...example} key={index} />
         ))}

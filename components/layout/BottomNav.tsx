@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function BottomNav() {
   return (
-    <footer className="fixed inset-x-0 bottom-0 flex w-full border-t border-gray-300 bg-gradient-to-t from-zinc-200 dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:border lg:bg-gray-200 lg:dark:bg-zinc-800/30">
+    <footer className="fixed inset-x-0 bottom-0 flex w-full border-t border-gray-300 bg-gradient-to-t from-zinc-200 dark:border-neutral-800 dark:bg-zinc-800 dark:from-inherit lg:border lg:bg-gray-200 lg:dark:bg-zinc-800">
       <Link
         className="flex items-center justify-center w-1/5 py-4 text-center"
         href="/"
