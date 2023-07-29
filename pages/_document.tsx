@@ -34,7 +34,11 @@ export default function Document() {
           sizes="16x16"
           href="/favicon/favicon-16x16.png"
         />
+
+        {/* PWA */}
         <link rel="manifest" href="/site.webmanifest" />
+        <link rel="manifest" href="/manifest.json" />
+        <script defer src="@/utils/contacts" />
 
         {/* Robots Search Indexing */}
         <meta
