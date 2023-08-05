@@ -33,9 +33,7 @@ export default function Home() {
           Hey 👋 it&#39;s <span className="text-[#40C9FF]">Truth</span> o/r{" "}
           <span className="text-[#EA1BFF]">Dare</span>
         </h1>
-        <h3 className="m-2 tracking-widest uppercase">
-          Invite your Lens Frens
-        </h3>
+        <h3 className="m-2 tracking-widest uppercase">Bring your Lens Frens</h3>
         <div className="mt-12">
           <ExampleQuestionCard />
         </div>
