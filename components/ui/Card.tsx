@@ -1,5 +1,9 @@
 import Image from "next/image";
-import { ChevronRightIcon } from "@heroicons/react/20/solid";
+import {
+  ChevronRightIcon,
+  HandThumbUpIcon,
+  HandThumbDownIcon,
+} from "@heroicons/react/20/solid";
 
 const people = [
   {
@@ -28,18 +32,18 @@ const people = [
   },
   {
     name: "If you were stranded on an island, who is the one person you would want to be stuck with you?",
-    email: "dries.vincent@example.com",
+    email: "@dyer84.eth",
     role: "Business Relations",
     imageUrl:
       "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
     href: "#",
     width: 256,
     height: 256,
-    lastSeen: null,
+    lastSeen: "3h ago",
   },
   {
     name: "What's the dumbest thing you've done recently?",
-    email: "lindsay.walton@example.com",
+    email: "@lindsaywalton.lens",
     role: "Front-end Developer",
     imageUrl:
       "https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
@@ -51,7 +55,7 @@ const people = [
   },
   {
     name: "If a movie was made about this group, what sort of characters do you think people would be?",
-    email: "courtney.henry@example.com",
+    email: "@courtneyhenry.lens",
     role: "Designer",
     imageUrl:
       "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
@@ -62,8 +66,8 @@ const people = [
     lastSeenDateTime: "2023-01-23T13:23Z",
   },
   {
-    name: "Tom Cook",
-    email: "@tom.lens",
+    name: "What is your most treasured memory?",
+    email: "@truthordare.lens",
     role: "Director of Product",
     imageUrl:
       "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
@@ -212,7 +216,7 @@ export default function ExampleQuestionCard() {
       {people.map((person) => (
         <li
           key={person.email}
-          className="relative flex justify-between gap-x-6 px-4 py-5 hover:bg-zinc-700/30 sm:px-6 lg:px-8"
+          className="relative flex justify-between gap-x-6 px-4 py-6 hover:bg-zinc-700/30 sm:px-6 lg:px-8"
         >
           <div className="flex min-w-0 gap-x-4">
             <Image
@@ -241,11 +245,21 @@ export default function ExampleQuestionCard() {
           </div>
           <div className="flex shrink-0 items-center gap-x-4">
             <div className="hidden sm:flex sm:flex-col sm:items-end">
-              <p className="text-sm leading-6 text-gray-300 hover:text-gray-900">
-                {person.role}
-              </p>
+              <div className="flex flex-col sm:flex-row" id="">
+                <div className="px-1" id="thumbs-up-icon">
+                  <HandThumbUpIcon
+                    className="h-5 w-5 text-gray-400"
+                    aria-hidden="true"
+                  />
+                  <span className="ml-1 text-xs blur-sm">12</span>
+                </div>
+                <div className="px-1" id="thumbs-down-icon">
+                  <HandThumbDownIcon className="h-5 w-5 text-gray-400" />
+                  <span className="ml-1 text-xs blur-sm">12</span>
+                </div>
+              </div>
               {person.lastSeen ? (
-                <p className="mt-1 text-xs leading-5 text-gray-500">
+                <p className="mt-1 text-xs leading-3 text-gray-500">
                   Submitted{" "}
                   <time dateTime={person.lastSeenDateTime}>
                     {person.lastSeen}
