@@ -3,7 +3,7 @@ import { SITE_NAME, SITE_DESCRIPTION, SITE_URL } from "@/utils/config";
 import TopNav from "@/components/layout/TopNav";
 import BottomNav from "@/components/layout/BottomNav";
 
-export default function Shop() {
+export default function Vote() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <Head>
@@ -17,9 +17,9 @@ export default function Shop() {
       <TopNav />
       <div className="flex flex-col items-center justify-center w-full h-full">
         <h1 className="text-4xl font-bold text-center text-gray-900 dark:text-gray-100">
-          Shop
+          Leaderboard
         </h1>
-        <h3 className="tracking-widest">marketplace</h3>
+        <h3 className="tracking-widest">challenges & trophies</h3>
       </div>
       <BottomNav />
     </main>

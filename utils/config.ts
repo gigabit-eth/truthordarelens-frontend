@@ -26,7 +26,7 @@ export const ETH_CHAINS = [
 export const WALLET_CONNECT_PROJECT_ID =
   process.env.NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID || "";
 
-export const SITE_NAME = "Truth o/r Dare on Lens Protocol";
+export const SITE_NAME = "Play Truth o/r Dare";
 export const SITE_DESCRIPTION =
   "Get to know your friends better, or make new ones, the game of truth or dare for the Lens Protocol. ";
 export const SITE_URL = "https://truthordare.lol";

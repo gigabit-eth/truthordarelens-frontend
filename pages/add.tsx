@@ -17,7 +17,7 @@ export default function Create() {
       <TopNav />
       <div className="flex flex-col items-center justify-center w-full h-full">
         <h1 className="text-4xl font-bold text-center text-gray-900 dark:text-gray-100">
-          Add
+          Add new
         </h1>
         <h3 className="tracking-widest">questions</h3>
       </div>

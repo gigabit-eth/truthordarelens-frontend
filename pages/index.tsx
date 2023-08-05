@@ -5,6 +5,7 @@ import { Inter } from "next/font/google";
 import Link from "next/link";
 import BottomNav from "@/components/layout/BottomNav";
 import TopNav from "@/components/layout/TopNav";
+import Example from "@/components/ui/Card";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -29,8 +30,15 @@ export default function Home() {
       <TopNav />
       <div className="flex flex-col items-center justify-center w-full h-full">
         <h1 className="text-4xl font-bold text-center text-gray-900 dark:text-gray-100">
-          Main
+          Hey 👋 it&#39;s <span className="text-[#40C9FF]">Truth</span> o/r{" "}
+          <span className="text-[#EA1BFF]">Dare</span>
         </h1>
+        <h3 className="m-2 tracking-widest uppercase">
+          Invite your Lens Frens
+        </h3>
+        <div className="mt-12">
+          <Example />
+        </div>
       </div>
       <BottomNav />
     </main>

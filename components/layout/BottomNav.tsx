@@ -11,7 +11,7 @@ export default function BottomNav() {
       </Link>
       <Link
         className="flex items-center justify-center w-1/5 py-4 text-center"
-        href="/vote"
+        href="/rankings"
       >
         <VoteIcon className="p-px w-7 h-7" />
       </Link>
@@ -23,15 +23,15 @@ export default function BottomNav() {
       </Link>
       <Link
         className="flex items-center justify-center w-1/5 py-4 text-center"
-        href="/shop"
+        href="/groups"
       >
-        <ShopIcon className="p-px w-7 h-7" />
+        <GroupsIcon className="p-px w-7 h-7" />
       </Link>
       <Link
         className="flex items-center justify-center w-1/5 py-4 text-center"
-        href="/settings"
+        href="/shop"
       >
-        <SettingsIcon className="p-px w-7 h-7" />
+        <ShopIcon className="p-px w-7 h-7" />
       </Link>
     </footer>
   );
@@ -54,6 +54,10 @@ type ShopIconProps = {
 };
 
 type SettingsIconProps = {
+  className?: string;
+};
+
+type GroupsIconProps = {
   className?: string;
 };
 
@@ -84,7 +88,11 @@ function VoteIcon({ className }: VoteIconProps) {
       fill="currentColor"
       className="w-6 h-6"
     >
-      <path d="M7.493 18.75c-.425 0-.82-.236-.975-.632A7.48 7.48 0 016 15.375c0-1.75.599-3.358 1.602-4.634.151-.192.373-.309.6-.397.473-.183.89-.514 1.212-.924a9.042 9.042 0 012.861-2.4c.723-.384 1.35-.956 1.653-1.715a4.498 4.498 0 00.322-1.672V3a.75.75 0 01.75-.75 2.25 2.25 0 012.25 2.25c0 1.152-.26 2.243-.723 3.218-.266.558.107 1.282.725 1.282h3.126c1.026 0 1.945.694 2.054 1.715.045.422.068.85.068 1.285a11.95 11.95 0 01-2.649 7.521c-.388.482-.987.729-1.605.729H14.23c-.483 0-.964-.078-1.423-.23l-3.114-1.04a4.501 4.501 0 00-1.423-.23h-.777zM2.331 10.977a11.969 11.969 0 00-.831 4.398 12 12 0 00.52 3.507c.26.85 1.084 1.368 1.973 1.368H4.9c.445 0 .72-.498.523-.898a8.963 8.963 0 01-.924-3.977c0-1.708.476-3.305 1.302-4.666.245-.403-.028-.959-.5-.959H4.25c-.832 0-1.612.453-1.918 1.227z" />
+      <path
+        fillRule="evenodd"
+        d="M5.166 2.621v.858c-1.035.148-2.059.33-3.071.543a.75.75 0 00-.584.859 6.753 6.753 0 006.138 5.6 6.73 6.73 0 002.743 1.346A6.707 6.707 0 019.279 15H8.54c-1.036 0-1.875.84-1.875 1.875V19.5h-.75a2.25 2.25 0 00-2.25 2.25c0 .414.336.75.75.75h15a.75.75 0 00.75-.75 2.25 2.25 0 00-2.25-2.25h-.75v-2.625c0-1.036-.84-1.875-1.875-1.875h-.739a6.706 6.706 0 01-1.112-3.173 6.73 6.73 0 002.743-1.347 6.753 6.753 0 006.139-5.6.75.75 0 00-.585-.858 47.077 47.077 0 00-3.07-.543V2.62a.75.75 0 00-.658-.744 49.22 49.22 0 00-6.093-.377c-2.063 0-4.096.128-6.093.377a.75.75 0 00-.657.744zm0 2.629c0 1.196.312 2.32.857 3.294A5.266 5.266 0 013.16 5.337a45.6 45.6 0 012.006-.343v.256zm13.5 0v-.256c.674.1 1.343.214 2.006.343a5.265 5.265 0 01-2.863 3.207 6.72 6.72 0 00.857-3.294z"
+        clipRule="evenodd"
+      />
     </svg>
   );
 }
@@ -143,3 +151,18 @@ function SettingsIcon({ className }: SettingsIconProps) {
 }
 
 function SettingsIconEmpty() {}
+
+function GroupsIcon({ className }: SettingsIconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      className="w-6 h-6"
+    >
+      <path d="M4.5 4.5a3 3 0 00-3 3v9a3 3 0 003 3h8.25a3 3 0 003-3v-9a3 3 0 00-3-3H4.5zM19.94 18.75l-2.69-2.69V7.94l2.69-2.69c.944-.945 2.56-.276 2.56 1.06v11.38c0 1.336-1.616 2.005-2.56 1.06z" />
+    </svg>
+  );
+}
+
+function GroupsIconEmpty() {}
