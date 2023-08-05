@@ -5,7 +5,7 @@ import { Inter } from "next/font/google";
 import Link from "next/link";
 import BottomNav from "@/components/layout/BottomNav";
 import TopNav from "@/components/layout/TopNav";
-import Example from "@/components/ui/Card";
+import ExampleQuestionCard from "@/components/ui/Card";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,7 +17,7 @@ export default function Home() {
 
   return (
     <main
-      className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}
+      className={`flex min-h-screen flex-col items-center justify-between pt-24 ${inter.className}`}
     >
       <Head>
         <title>{SITE_NAME}</title>
@@ -37,7 +37,7 @@ export default function Home() {
           Invite your Lens Frens
         </h3>
         <div className="mt-12">
-          <Example />
+          <ExampleQuestionCard />
         </div>
       </div>
       <BottomNav />

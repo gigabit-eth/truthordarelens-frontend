@@ -206,7 +206,7 @@ const people = [
   },
 ];
 
-export default function Example() {
+export default function ExampleQuestionCard() {
   return (
     <ul role="list" className="divide-y divide-zinc-800">
       {people.map((person) => (
