@@ -1,6 +1,7 @@
-import SEO from './SEO';
-import Navbar from './Navbar';
-import HeadingComponent from './HeadingComponent';
-import CustomButton from './CustomButton';
+import SEO from "./SEO";
+import TopNav from "./TopNav";
+import BottomNav from "./BottomNav";
+import HeadingComponent from "./HeadingComponent";
+import CustomButton from "./CustomButton";
 
-export { SEO, Navbar, HeadingComponent, CustomButton };
+export { SEO, TopNav, BottomNav, HeadingComponent, CustomButton };

@@ -1,8 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import { SITE_NAME, SITE_DESCRIPTION, SITE_URL } from "@/utils/config";
-import TopNav from "@/components/layout/TopNav";
-import BottomNav from "@/components/layout/BottomNav";
+import { TopNav, BottomNav } from "@/components/layout";
 
 export default function Create() {
   return (

@@ -47,7 +47,7 @@ const connectors = connectorsForWallets([
     wallets: [
       trustWallet({ projectId, chains }),
       ledgerWallet({ projectId, chains }),
-      coinbaseWallet({ chains, appName: "DAPP KIT" }),
+      coinbaseWallet({ chains, appName: "TRUTH O/R DARE" }),
     ],
   },
 ]);
