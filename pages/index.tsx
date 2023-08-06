@@ -35,9 +35,9 @@ export default function Home() {
           <span className="text-[#EA1BFF]">Dare</span>
         </h1>
         <h2 className="m-2 tracking-wide uppercase text-xs">
-          Have fun with your Lens Frens
+          Have Fun With Your Lens Frens
         </h2>
-        <div className="flex flex-shrink m-4">
+        <div className="m-4">
           <SearchBar />
         </div>
         <div className="mt-12">
