@@ -1,67 +1,66 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 export default function BottomNav() {
+  const router = useRouter();
+
+  const isActive = (path: string) => router.pathname === path;
   return (
     <footer className="fixed inset-x-0 bottom-0 flex w-full border-t border-gray-300 bg-gradient-to-t from-zinc-200 dark:border-neutral-800 dark:bg-[#1D1A1C] dark:from-inherit lg:border lg:bg-gray-200 lg:dark:bg-[#1D1A1C]">
-      <Link
-        className="text-green-500 flex items-center justify-center w-1/5 py-4 text-center"
-        href="/"
-      >
-        <QuestionIcon className="p-px w-7 h-7" />
+      <Link legacyBehavior href="/">
+        <a
+          className={`flex items-center justify-center w-1/5 py-4 text-center ${
+            isActive("/") ? "text-[#FFEBB8]" : "text-zinc-700"
+          }`}
+        >
+          <QuestionIcon className="p-px w-7 h-7" />
+        </a>
       </Link>
-      <Link
-        className="text-zinc-700 flex items-center justify-center w-1/5 py-4 text-center"
-        href="/rankings"
-      >
-        <VoteIcon className="p-px w-7 h-7" />
+      <Link legacyBehavior href="/rankings">
+        <a
+          className={`flex items-center justify-center w-1/5 py-4 text-center ${
+            isActive("/rankings") ? "text-[#FFEBB8]" : "text-zinc-700"
+          }`}
+        >
+          <VoteIcon className="p-px w-7 h-7" />
+        </a>
       </Link>
-      <Link
-        className="text-zinc-700 flex items-center justify-center w-1/5 py-4 text-center"
-        href="/add"
-      >
-        <CreateIcon className="p-px w-7 h-7" />
+      <Link legacyBehavior href="/add">
+        <a
+          className={`flex items-center justify-center w-1/5 py-4 text-center ${
+            isActive("/add") ? "text-[#FFEBB8]" : "text-zinc-700"
+          }`}
+        >
+          <CreateIcon className="p-px w-7 h-7" />
+        </a>
       </Link>
-      <Link
-        className="text-zinc-700 flex items-center justify-center w-1/5 py-4 text-center"
-        href="/groups"
-      >
-        <GroupsIcon className="p-px w-7 h-7" />
+      <Link legacyBehavior href="/groups">
+        <a
+          className={`flex items-center justify-center w-1/5 py-4 text-center ${
+            isActive("/groups") ? "text-[#FFEBB8]" : "text-zinc-700"
+          }`}
+        >
+          <GroupsIcon className="p-px w-7 h-7" />
+        </a>
       </Link>
-      <Link
-        className="text-zinc-700 flex items-center justify-center w-1/5 py-4 text-center"
-        href="/shop"
-      >
-        <ShopIcon className="p-px w-7 h-7" />
+      <Link legacyBehavior href="/shop">
+        <a
+          className={`flex items-center justify-center w-1/5 py-4 text-center ${
+            isActive("/shop") ? "text-[#FFEBB8]" : "text-zinc-700"
+          }`}
+        >
+          <ShopIcon className="p-px w-7 h-7" />
+        </a>
       </Link>
     </footer>
   );
 }
 
-type QuestionIconProps = {
+type IconProps = {
   className?: string;
 };
 
-type VoteIconProps = {
-  className?: string;
-};
-
-type CreateIconProps = {
-  className?: string;
-};
-
-type ShopIconProps = {
-  className?: string;
-};
-
-type SettingsIconProps = {
-  className?: string;
-};
-
-type GroupsIconProps = {
-  className?: string;
-};
-
-function QuestionIcon({ className }: QuestionIconProps) {
+function QuestionIcon({ className }: IconProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -78,9 +77,7 @@ function QuestionIcon({ className }: QuestionIconProps) {
   );
 }
 
-function QuestionIconEmpty() {}
-
-function VoteIcon({ className }: VoteIconProps) {
+function VoteIcon({ className }: IconProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -97,9 +94,7 @@ function VoteIcon({ className }: VoteIconProps) {
   );
 }
 
-function VoteIconEmpty() {}
-
-function CreateIcon({ className }: CreateIconProps) {
+function CreateIcon({ className }: IconProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -116,9 +111,7 @@ function CreateIcon({ className }: CreateIconProps) {
   );
 }
 
-function CreateIconEmpty() {}
-
-function ShopIcon({ className }: ShopIconProps) {
+function ShopIcon({ className }: IconProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -135,24 +128,7 @@ function ShopIcon({ className }: ShopIconProps) {
   );
 }
 
-function ShopIconEmpty() {}
-
-function SettingsIcon({ className }: SettingsIconProps) {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      className="w-6 h-6"
-    >
-      <path d="M18.75 12.75h1.5a.75.75 0 000-1.5h-1.5a.75.75 0 000 1.5zM12 6a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5A.75.75 0 0112 6zM12 18a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5A.75.75 0 0112 18zM3.75 6.75h1.5a.75.75 0 100-1.5h-1.5a.75.75 0 000 1.5zM5.25 18.75h-1.5a.75.75 0 010-1.5h1.5a.75.75 0 010 1.5zM3 12a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5A.75.75 0 013 12zM9 3.75a2.25 2.25 0 100 4.5 2.25 2.25 0 000-4.5zM12.75 12a2.25 2.25 0 114.5 0 2.25 2.25 0 01-4.5 0zM9 15.75a2.25 2.25 0 100 4.5 2.25 2.25 0 000-4.5z" />
-    </svg>
-  );
-}
-
-function SettingsIconEmpty() {}
-
-function GroupsIcon({ className }: SettingsIconProps) {
+function GroupsIcon({ className }: IconProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -164,5 +140,3 @@ function GroupsIcon({ className }: SettingsIconProps) {
     </svg>
   );
 }
-
-function GroupsIconEmpty() {}
