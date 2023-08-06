@@ -13,7 +13,7 @@ import { NextSeo } from "next-seo";
 import { Toaster, toast } from "react-hot-toast";
 
 import { Inter } from "next/font/google";
-import { Navbar, HeadingComponent } from "@/components/layout";
+import { HeadingComponent } from "@/components/layout";
 import TopNav from "@/components/layout/TopNav";
 import BottomNav from "@/components/layout/BottomNav";
 

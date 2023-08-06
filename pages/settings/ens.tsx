@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { NextSeo } from "next-seo";
 import { fetchEnsAddress, fetchEnsName } from "@wagmi/core";
 import { Toaster, toast } from "react-hot-toast";
-import { Navbar, HeadingComponent, CustomButton } from "@/components/layout";
+import { HeadingComponent, CustomButton } from "@/components/layout";
 import { Inter } from "next/font/google";
 import TopNav from "@/components/layout/TopNav";
 import BottomNav from "@/components/layout/BottomNav";

@@ -4,7 +4,7 @@ import { useAccount, useSignMessage } from "wagmi";
 import { recoverMessageAddress } from "viem";
 import toast, { Toaster } from "react-hot-toast";
 
-import { Navbar, HeadingComponent, CustomButton } from "@/components/layout";
+import { HeadingComponent, CustomButton } from "@/components/layout";
 import { Inter } from "next/font/google";
 
 import TopNav from "@/components/layout/TopNav";

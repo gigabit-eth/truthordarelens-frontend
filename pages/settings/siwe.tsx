@@ -4,7 +4,7 @@ import toast, { Toaster } from "react-hot-toast";
 import { useAccount, useNetwork, useSignMessage } from "wagmi";
 import { SiweMessage } from "siwe";
 
-import { Navbar, HeadingComponent, CustomButton } from "@/components/layout";
+import { HeadingComponent, CustomButton } from "@/components/layout";
 import { Inter } from "next/font/google";
 
 import { SITE_NAME } from "@/utils/config";

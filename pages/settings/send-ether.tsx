@@ -12,7 +12,7 @@ import {
 } from "wagmi";
 import { parseEther } from "viem";
 
-import { Navbar, HeadingComponent } from "@/components/layout";
+import { HeadingComponent } from "@/components/layout";
 import { Inter } from "next/font/google";
 
 import TopNav from "@/components/layout/TopNav";

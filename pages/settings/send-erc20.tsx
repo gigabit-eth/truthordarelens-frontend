@@ -12,7 +12,7 @@ import {
   erc20ABI,
 } from "wagmi";
 
-import { Navbar, HeadingComponent } from "@/components/layout";
+import { HeadingComponent } from "@/components/layout";
 import { Inter } from "next/font/google";
 import { parseEther } from "viem";
 
