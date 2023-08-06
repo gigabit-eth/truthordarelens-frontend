@@ -24,8 +24,8 @@ export default function Vote() {
       </div>
       <div className="relative flex items-center justify-center w-full h-full flex-grow">
         <Image
-          className="dark:drop-shadow-[0_0_0.15rem_#ffffff70] dark:invert"
-          src="./soon.svg"
+          className="opacity-5"
+          src="./tod.svg"
           width={250}
           height={37}
           alt="Coming soon"

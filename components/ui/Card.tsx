@@ -251,11 +251,11 @@ export default function ExampleQuestionCard() {
                     className="h-5 w-5 text-gray-400"
                     aria-hidden="true"
                   />
-                  <span className="ml-1 text-xs blur-sm">12</span>
+                  <span className="ml-1 text-xs blur-sm">99</span>
                 </div>
                 <div className="px-1" id="thumbs-down-icon">
                   <HandThumbDownIcon className="h-5 w-5 text-gray-400" />
-                  <span className="ml-1 text-xs blur-sm">12</span>
+                  <span className="ml-1 text-xs blur-sm">28</span>
                 </div>
               </div>
               {person.lastSeen ? (

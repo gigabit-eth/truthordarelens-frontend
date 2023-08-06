@@ -29,11 +29,13 @@ export default function Home() {
       </Head>
       <TopNav />
       <div className="flex flex-col items-center justify-center w-full h-full">
-        <h1 className="text-4xl font-bold text-center text-gray-900 dark:text-gray-100">
-          Hey 👋 it&#39;s <span className="text-[#40C9FF]">Truth</span> o/r{" "}
+        <h1 className="text-3xl mt-4 font-bold text-center text-gray-900 dark:text-gray-100">
+          Play <span className="text-[#40C9FF]">Truth</span> o/r{" "}
           <span className="text-[#EA1BFF]">Dare</span>
         </h1>
-        <h3 className="m-2 tracking-widest uppercase">Bring your Lens Frens</h3>
+        <h2 className="m-2 tracking-wide uppercase text-xs">
+          Have fun with your Lens Frens
+        </h2>
         <div className="mt-12">
           <ExampleQuestionCard />
         </div>

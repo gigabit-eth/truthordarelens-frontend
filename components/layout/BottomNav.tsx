@@ -2,34 +2,34 @@ import Link from "next/link";
 
 export default function BottomNav() {
   return (
-    <footer className="fixed inset-x-0 bottom-0 flex w-full border-t border-gray-300 bg-gradient-to-t from-zinc-200 dark:border-neutral-800 dark:bg-zinc-800 dark:from-inherit lg:border lg:bg-gray-200 lg:dark:bg-zinc-800">
+    <footer className="fixed inset-x-0 bottom-0 flex w-full border-t border-gray-300 bg-gradient-to-t from-zinc-200 dark:border-neutral-800 dark:bg-[#1D1A1C] dark:from-inherit lg:border lg:bg-gray-200 lg:dark:bg-[#1D1A1C]">
       <Link
-        className="flex items-center justify-center w-1/5 py-4 text-center"
+        className="text-green-500 flex items-center justify-center w-1/5 py-4 text-center"
         href="/"
       >
         <QuestionIcon className="p-px w-7 h-7" />
       </Link>
       <Link
-        className="flex items-center justify-center w-1/5 py-4 text-center"
+        className="text-zinc-700 flex items-center justify-center w-1/5 py-4 text-center"
         href="/rankings"
       >
         <VoteIcon className="p-px w-7 h-7" />
       </Link>
       <Link
-        className="flex items-center justify-center w-1/5 py-4 text-center"
+        className="text-zinc-700 flex items-center justify-center w-1/5 py-4 text-center"
         href="/add"
       >
         <CreateIcon className="p-px w-7 h-7" />
       </Link>
       <Link
-        className="flex items-center justify-center w-1/5 py-4 text-center"
-        href="/alpha"
+        className="text-zinc-700 flex items-center justify-center w-1/5 py-4 text-center"
+        href="/groups"
       >
         <GroupsIcon className="p-px w-7 h-7" />
       </Link>
       <Link
-        className="flex items-center justify-center w-1/5 py-4 text-center"
-        href="/beta"
+        className="text-zinc-700 flex items-center justify-center w-1/5 py-4 text-center"
+        href="/shop"
       >
         <ShopIcon className="p-px w-7 h-7" />
       </Link>
@@ -126,8 +126,11 @@ function ShopIcon({ className }: ShopIconProps) {
       fill="currentColor"
       className="w-6 h-6"
     >
-      <path d="M11.25 3v4.046a3 3 0 00-4.277 4.204H1.5v-6A2.25 2.25 0 013.75 3h7.5zM12.75 3v4.011a3 3 0 014.239 4.239H22.5v-6A2.25 2.25 0 0020.25 3h-7.5zM22.5 12.75h-8.983a4.125 4.125 0 004.108 3.75.75.75 0 010 1.5 5.623 5.623 0 01-4.875-2.817V21h7.5a2.25 2.25 0 002.25-2.25v-6zM11.25 21v-5.817A5.623 5.623 0 016.375 18a.75.75 0 010-1.5 4.126 4.126 0 004.108-3.75H1.5v6A2.25 2.25 0 003.75 21h7.5z" />
-      <path d="M11.085 10.354c.03.297.038.575.036.805a7.484 7.484 0 01-.805-.036c-.833-.084-1.677-.325-2.195-.843a1.5 1.5 0 012.122-2.12c.517.517.759 1.36.842 2.194zM12.877 10.354c-.03.297-.038.575-.036.805.23.002.508-.006.805-.036.833-.084 1.677-.325 2.195-.843A1.5 1.5 0 0013.72 8.16c-.518.518-.76 1.362-.843 2.194z" />
+      <path
+        fillRule="evenodd"
+        d="M7.5 6v.75H5.513c-.96 0-1.764.724-1.865 1.679l-1.263 12A1.875 1.875 0 004.25 22.5h15.5a1.875 1.875 0 001.865-2.071l-1.263-12a1.875 1.875 0 00-1.865-1.679H16.5V6a4.5 4.5 0 10-9 0zM12 3a3 3 0 00-3 3v.75h6V6a3 3 0 00-3-3zm-3 8.25a3 3 0 106 0v-.75a.75.75 0 011.5 0v.75a4.5 4.5 0 11-9 0v-.75a.75.75 0 011.5 0v.75z"
+        clipRule="evenodd"
+      />
     </svg>
   );
 }
@@ -157,7 +160,7 @@ function GroupsIcon({ className }: SettingsIconProps) {
       fill="currentColor"
       className="w-6 h-6"
     >
-      <path d="M9.375 3a1.875 1.875 0 000 3.75h1.875v4.5H3.375A1.875 1.875 0 011.5 9.375v-.75c0-1.036.84-1.875 1.875-1.875h3.193A3.375 3.375 0 0112 2.753a3.375 3.375 0 015.432 3.997h3.943c1.035 0 1.875.84 1.875 1.875v.75c0 1.036-.84 1.875-1.875 1.875H12.75v-4.5h1.875a1.875 1.875 0 10-1.875-1.875V6.75h-1.5V4.875C11.25 3.839 10.41 3 9.375 3zM11.25 12.75H3v6.75a2.25 2.25 0 002.25 2.25h6v-9zM12.75 12.75v9h6.75a2.25 2.25 0 002.25-2.25v-6.75h-9z" />
+      <path d="M4.5 4.5a3 3 0 00-3 3v9a3 3 0 003 3h8.25a3 3 0 003-3v-9a3 3 0 00-3-3H4.5zM19.94 18.75l-2.69-2.69V7.94l2.69-2.69c.944-.945 2.56-.276 2.56 1.06v11.38c0 1.336-1.616 2.005-2.56 1.06z" />
     </svg>
   );
 }

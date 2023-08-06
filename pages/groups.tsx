@@ -18,14 +18,14 @@ export default function Groups() {
       <TopNav />
       <div className="flex flex-col items-center justify-center w-full h-full">
         <h1 className="text-4xl font-bold text-center text-gray-900 dark:text-gray-100">
-          Top Secret
+          Groups
         </h1>
-        <h3 className="tracking-widest">alpha</h3>
+        <h3 className="tracking-widest">chat room</h3>
       </div>
       <div className="relative flex items-center justify-center w-full h-full flex-grow">
         <Image
-          className="dark:drop-shadow-[0_0_0.15rem_#ffffff70] dark:invert"
-          src="./soon.svg"
+          className="opacity-5"
+          src="./tod.svg"
           width={250}
           height={37}
           alt="Coming soon"
