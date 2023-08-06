@@ -210,7 +210,7 @@ const people = [
   },
 ];
 
-export default function ExampleQuestionCard() {
+export default function QuestionCard() {
   return (
     <ul role="list" className="divide-y divide-zinc-800">
       {people.map((person) => (
