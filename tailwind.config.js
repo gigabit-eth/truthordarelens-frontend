@@ -13,18 +13,6 @@ module.exports = {
       lg: "1024px",
       xl: "1280px",
     },
-    // fontSize: {
-    //   xs: rem(0.75),
-    //   sm: rem(0.875),
-    //   base: rem(0.9375),
-    //   lg: rem(1.125),
-    //   xl: rem(1.25),
-    //   "2xl": rem(1.5),
-    //   "3xl": rem(1.875),
-    //   "4xl": rem(2.25),
-    //   "5xl": rem(3),
-    //   "6xl": rem(4),
-    // },
     extend: {
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
@@ -33,5 +21,5 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/forms")],
 };

@@ -6,6 +6,7 @@ import Link from "next/link";
 import BottomNav from "@/components/layout/BottomNav";
 import TopNav from "@/components/layout/TopNav";
 import ExampleQuestionCard from "@/components/ui/Card";
+import SearchBar from "@/components/ui/Search";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -36,6 +37,9 @@ export default function Home() {
         <h2 className="m-2 tracking-wide uppercase text-xs">
           Have fun with your Lens Frens
         </h2>
+        <div className="flex flex-shrink m-4">
+          <SearchBar />
+        </div>
         <div className="mt-12">
           <ExampleQuestionCard />
         </div>
