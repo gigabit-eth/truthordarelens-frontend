@@ -15,7 +15,7 @@ export const ETH_CHAINS = [
   // mainnet,
   polygon,
   // sepolia,
-  // polygonMumbai,
+  polygonMumbai,
   // polygonZkEvm,
   // polygonZkEvmTestnet,
   // bsc,

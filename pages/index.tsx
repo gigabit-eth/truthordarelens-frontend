@@ -33,8 +33,8 @@ export default function Home() {
           <Image
             src="./tod.svg"
             alt=""
-            width={12}
-            height={12}
+            width={20}
+            height={20}
             className="self-center w-20 h-20 rounded mx-1"
           />
         </div>

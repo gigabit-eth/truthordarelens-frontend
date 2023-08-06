@@ -4,6 +4,21 @@ import {
   HandThumbUpIcon,
   HandThumbDownIcon,
 } from "@heroicons/react/20/solid";
+import { Database } from "@tableland/sdk";
+
+// begin Tableland Quick Start
+const tableName: string = "healthbot_80001_1";
+interface HealthBot {
+  counter: number;
+}
+const fetchData = async () => {
+  const db: Database<HealthBot> = new Database();
+
+  const { results } = await db.prepare(`SELECT * FROM ${tableName};`).all();
+  console.log(results);
+};
+fetchData();
+// # end Tableland Quick Start
 
 const people = [
   {
@@ -260,7 +275,7 @@ export default function QuestionCard() {
               </div>
               {person.lastSeen ? (
                 <p className="mt-1 text-xs leading-3 text-gray-500">
-                  Submitted{" "}
+                  Finished{" "}
                   <time dateTime={person.lastSeenDateTime}>
                     {person.lastSeen}
                   </time>
