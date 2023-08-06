@@ -16,19 +16,19 @@ export default function BottomNav() {
           <QuestionIcon className="p-px w-7 h-7" />
         </a>
       </Link>
-      <Link legacyBehavior href="/rankings">
+      <Link legacyBehavior href="/scores">
         <a
           className={`flex items-center justify-center w-1/5 py-4 text-center ${
-            isActive("/rankings") ? "text-[#FFEBB8]" : "text-zinc-700"
+            isActive("/scores") ? "text-[#FFEBB8]" : "text-zinc-700"
           }`}
         >
           <VoteIcon className="p-px w-7 h-7" />
         </a>
       </Link>
-      <Link legacyBehavior href="/add">
+      <Link legacyBehavior href="/create">
         <a
           className={`flex items-center justify-center w-1/5 py-4 text-center ${
-            isActive("/add") ? "text-[#FFEBB8]" : "text-zinc-700"
+            isActive("/create") ? "text-[#FFEBB8]" : "text-zinc-700"
           }`}
         >
           <CreateIcon className="p-px w-7 h-7" />

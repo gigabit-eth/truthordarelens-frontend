@@ -57,7 +57,7 @@ const people = [
     lastSeen: "3h ago",
   },
   {
-    name: "What's the dumbest thing you've done recently?",
+    name: "Sing a song for the group.",
     email: "@lindsaywalton.lens",
     role: "Front-end Developer",
     imageUrl:
@@ -92,8 +92,8 @@ const people = [
     lastSeen: null,
   },
   {
-    name: "Tom Cook",
-    email: "@tom.lens",
+    name: "What is the most exotic food that you have ever eaten?",
+    email: "@truthordare.lens",
     role: "Director of Product",
     imageUrl:
       "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
@@ -103,8 +103,8 @@ const people = [
     lastSeen: null,
   },
   {
-    name: "Tom Cook",
-    email: "@tom.lens",
+    name: "What is your favorite place to eat out?",
+    email: "@truthordare.lens",
     role: "Director of Product",
     imageUrl:
       "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
@@ -114,8 +114,8 @@ const people = [
     lastSeen: null,
   },
   {
-    name: "Tom Cook",
-    email: "@tom.lens",
+    name: "Do you know how to swim?",
+    email: "@truthordare.lens",
     role: "Director of Product",
     imageUrl:
       "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
@@ -125,8 +125,8 @@ const people = [
     lastSeen: null,
   },
   {
-    name: "Tom Cook",
-    email: "@tom.lens",
+    name: "Would you rather be a dolphin or a whale?",
+    email: "@truthordare.lens",
     role: "Director of Product",
     imageUrl:
       "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
@@ -136,8 +136,8 @@ const people = [
     lastSeen: null,
   },
   {
-    name: "Tom Cook",
-    email: "@tom.lens",
+    name: "What's your favorite film?",
+    email: "@truthordare.lens",
     role: "Director of Product",
     imageUrl:
       "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
@@ -147,8 +147,8 @@ const people = [
     lastSeen: null,
   },
   {
-    name: "Tom Cook",
-    email: "@tom.lens",
+    name: "Never have I ever colored my hair a crazy color.",
+    email: "@truthordare.lens",
     role: "Director of Product",
     imageUrl:
       "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
@@ -158,8 +158,8 @@ const people = [
     lastSeen: null,
   },
   {
-    name: "Tom Cook",
-    email: "@tom.lens",
+    name: "Draw a face around your belly button.",
+    email: "@truthordare.lens",
     role: "Director of Product",
     imageUrl:
       "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
@@ -169,8 +169,8 @@ const people = [
     lastSeen: null,
   },
   {
-    name: "Tom Cook",
-    email: "@tom.lens",
+    name: "What is your worst habit?",
+    email: "@truthordare.lens",
     role: "Director of Product",
     imageUrl:
       "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
@@ -180,8 +180,8 @@ const people = [
     lastSeen: null,
   },
   {
-    name: "Tom Cook",
-    email: "@tom.lens",
+    name: "What's something in your fridge right now that should probably be thrown out?",
+    email: "@truthordare.lens",
     role: "Director of Product",
     imageUrl:
       "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
@@ -191,8 +191,8 @@ const people = [
     lastSeen: null,
   },
   {
-    name: "Tom Cook",
-    email: "@tom.lens",
+    name: "What did you think at the time was cool but now you regret?",
+    email: "@truthordare.lens",
     role: "Director of Product",
     imageUrl:
       "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
@@ -202,8 +202,8 @@ const people = [
     lastSeen: null,
   },
   {
-    name: "Tom Cook",
-    email: "@tom.lens",
+    name: "Never have I ever driven through a red light.",
+    email: "@truthordare.lens",
     role: "Director of Product",
     imageUrl:
       "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
@@ -213,8 +213,8 @@ const people = [
     lastSeen: null,
   },
   {
-    name: "Tom Cook",
-    email: "@tom.lens",
+    name: "Would you rather be a dinosaur or a mermaid?",
+    email: "@truthordare.lens",
     role: "Director of Product",
     imageUrl:
       "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
@@ -235,7 +235,7 @@ export default function QuestionCard() {
         >
           <div className="flex min-w-0 gap-x-4">
             <Image
-              className="h-12 w-12 flex-none rounded-full bg-gray-50"
+              className="h-12 w-12 flex-none rounded-full bg-gray-50 blur"
               src={person.imageUrl}
               alt=""
               width={person.width}
@@ -248,7 +248,7 @@ export default function QuestionCard() {
                   {person.name}
                 </a>
               </p>
-              <p className="mt-1 flex text-xs leading-5 text-gray-500">
+              <p className="mt-1 flex text-xs leading-5 text-gray-500 blur-sm">
                 <a
                   href={`mailto:${person.email}`}
                   className="relative truncate hover:underline"
@@ -275,7 +275,7 @@ export default function QuestionCard() {
               </div>
               {person.lastSeen ? (
                 <p className="mt-1 text-xs leading-3 text-gray-500">
-                  Finished{" "}
+                  Submitted{" "}
                   <time dateTime={person.lastSeenDateTime}>
                     {person.lastSeen}
                   </time>
