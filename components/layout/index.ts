@@ -3,5 +3,6 @@ import TopNav from "./TopNav";
 import BottomNav from "./BottomNav";
 import HeadingComponent from "./HeadingComponent";
 import CustomButton from "./CustomButton";
+import Branding from "./Branding";
 
-export { SEO, TopNav, BottomNav, HeadingComponent, CustomButton };
+export { SEO, TopNav, BottomNav, HeadingComponent, CustomButton, Branding };

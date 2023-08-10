@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import {
   ChevronRightIcon,
   HandThumbUpIcon,
@@ -227,75 +228,77 @@ const people = [
 
 export default function QuestionCard() {
   return (
-    <ul role="list" className="divide-y divide-zinc-800">
-      {people.map((person) => (
-        <li
-          key={person.email}
-          className="relative flex justify-between gap-x-6 px-4 py-6 hover:bg-zinc-700/30 sm:px-6 lg:px-8"
-        >
-          <div className="flex min-w-0 gap-x-4">
-            <Image
-              className="h-12 w-12 flex-none rounded-full bg-gray-50 blur"
-              src={person.imageUrl}
-              alt=""
-              width={person.width}
-              height={person.height}
-            />
-            <div className="min-w-0 flex-auto">
-              <p className="text-sm font-semibold leading-6 text-gray-300">
-                <a href={person.href}>
-                  <span className="absolute inset-x-0 -top-px bottom-0" />
-                  {person.name}
-                </a>
-              </p>
-              <p className="mt-1 flex text-xs leading-5 text-gray-500 blur-sm">
-                <a
-                  href={`mailto:${person.email}`}
-                  className="relative truncate hover:underline"
-                >
-                  {person.email}
-                </a>
-              </p>
-            </div>
-          </div>
-          <div className="flex shrink-0 items-center gap-x-4">
-            <div className="hidden sm:flex sm:flex-col sm:items-end">
-              <div className="flex flex-col sm:flex-row" id="">
-                <div className="px-1" id="thumbs-up-icon">
-                  <HandThumbUpIcon
-                    className="h-5 w-5 text-gray-400"
-                    aria-hidden="true"
-                  />
-                  <span className="ml-1 text-xs blur-sm">99</span>
-                </div>
-                <div className="px-1" id="thumbs-down-icon">
-                  <HandThumbDownIcon className="h-5 w-5 text-gray-400" />
-                  <span className="ml-1 text-xs blur-sm">28</span>
-                </div>
-              </div>
-              {person.lastSeen ? (
-                <p className="mt-1 text-xs leading-3 text-gray-500">
-                  Submitted{" "}
-                  <time dateTime={person.lastSeenDateTime}>
-                    {person.lastSeen}
-                  </time>
+    <Link href="/question/">
+      <ul role="list" className="divide-y divide-zinc-800">
+        {people.map((person) => (
+          <li
+            key={person.email}
+            className="relative flex justify-between gap-x-6 px-4 py-6 hover:bg-zinc-700/30 sm:px-6 lg:px-8"
+          >
+            <div className="flex min-w-0 gap-x-4">
+              <Image
+                className="h-12 w-12 flex-none rounded-full bg-gray-50 blur"
+                src={person.imageUrl}
+                alt=""
+                width={person.width}
+                height={person.height}
+              />
+              <div className="min-w-0 flex-auto">
+                <p className="text-sm font-semibold leading-6 text-gray-300">
+                  <a href={person.href}>
+                    <span className="absolute inset-x-0 -top-px bottom-0" />
+                    {person.name}
+                  </a>
                 </p>
-              ) : (
-                <div className="mt-1 flex items-center gap-x-1.5">
-                  <div className="flex-none rounded-full bg-emerald-500/20 p-1">
-                    <div className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
-                  </div>
-                  <p className="text-xs leading-5 text-gray-500">Online</p>
-                </div>
-              )}
+                <p className="mt-1 flex text-xs leading-5 text-gray-500 blur-sm">
+                  <a
+                    href={`mailto:${person.email}`}
+                    className="relative truncate hover:underline"
+                  >
+                    {person.email}
+                  </a>
+                </p>
+              </div>
             </div>
-            <ChevronRightIcon
-              className="h-5 w-5 flex-none text-gray-400"
-              aria-hidden="true"
-            />
-          </div>
-        </li>
-      ))}
-    </ul>
+            <div className="flex shrink-0 items-center gap-x-4">
+              <div className="hidden sm:flex sm:flex-col sm:items-end">
+                <div className="flex flex-col sm:flex-row" id="">
+                  <div className="px-1" id="thumbs-up-icon">
+                    <HandThumbUpIcon
+                      className="h-5 w-5 text-gray-400"
+                      aria-hidden="true"
+                    />
+                    <span className="ml-1 text-xs blur-sm">99</span>
+                  </div>
+                  <div className="px-1" id="thumbs-down-icon">
+                    <HandThumbDownIcon className="h-5 w-5 text-gray-400" />
+                    <span className="ml-1 text-xs blur-sm">28</span>
+                  </div>
+                </div>
+                {person.lastSeen ? (
+                  <p className="mt-1 text-xs leading-3 text-gray-500">
+                    Submitted{" "}
+                    <time dateTime={person.lastSeenDateTime}>
+                      {person.lastSeen}
+                    </time>
+                  </p>
+                ) : (
+                  <div className="mt-1 flex items-center gap-x-1.5">
+                    <div className="flex-none rounded-full bg-emerald-500/20 p-1">
+                      <div className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+                    </div>
+                    <p className="text-xs leading-5 text-gray-500">Online</p>
+                  </div>
+                )}
+              </div>
+              <ChevronRightIcon
+                className="h-5 w-5 flex-none text-gray-400"
+                aria-hidden="true"
+              />
+            </div>
+          </li>
+        ))}
+      </ul>
+    </Link>
   );
 }
