@@ -34,7 +34,7 @@ export default function Home() {
         <div className="m-4">
           <SearchBar />
         </div>
-        <div className="mt-12">
+        <div className="mt-12 mb-24">
           <QuestionCard />
         </div>
       </div>

@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import { SITE_NAME, SITE_DESCRIPTION, SITE_URL } from "@/utils/config";
-import { TopNav, BottomNav } from "@/components/layout";
+import { TopNav, BottomNav, Branding } from "@/components/layout";
 
 export default function Create() {
   return (
@@ -16,10 +16,7 @@ export default function Create() {
       </Head>
       <TopNav />
       <div className="flex flex-col items-center justify-center w-full h-full">
-        <h1 className="text-4xl font-bold text-center text-gray-900 dark:text-gray-100">
-          Create
-        </h1>
-        <h3 className="tracking-widest">new questions</h3>
+        <Branding />
       </div>
       <div className="relative flex items-center justify-center w-full h-full flex-grow">
         <Image

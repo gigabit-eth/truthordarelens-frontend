@@ -17,7 +17,7 @@ export default function Branding() {
         <span className="text-[#EA1BFF]">Dare</span>
       </h1>
       <h2 className="m-2 tracking-wide uppercase text-xs">
-        Have Fun With Your Web3 Frens
+        Have Fun With Your Lens Frens
       </h2>
     </div>
   );

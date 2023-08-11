@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -7,19 +8,68 @@ import {
 } from "@heroicons/react/20/solid";
 import { Database } from "@tableland/sdk";
 
-// begin Tableland Quick Start
-const tableName: string = "healthbot_80001_1";
-interface HealthBot {
-  counter: number;
-}
-const fetchData = async () => {
-  const db: Database<HealthBot> = new Database();
+// create database
+const createTable = async () => {
+  interface Schema {
+    id: number;
+    question: string;
+    category: string;
+    creator: string;
+  }
 
+  const db = new Database<Schema>();
+
+  const prefix: string = "Truth_or_Dare";
+
+  const { meta: create } = await db
+    .prepare(
+      `CREATE TABLE ${prefix} (id integer primary key, question text, category text, creator text);`
+    )
+    .run();
+
+  // The table's `name` is in the format `{prefix}_{chainId}_{tableId}`
+  const { name } = create.txn!; // e.g., my_sdk_table_80001_311
+
+  console.log(name);
+};
+
+// createTable();
+
+// insert into database
+const insertData = async () => {
+  const tableName: string = "Truth_or_Dare_80001_7170";
+
+  // interface
+  interface Schema {
+    id: number;
+    question: string;
+    category: string;
+    creator: string;
+  }
+
+  const db: Database<Schema> = new Database();
+  // insert a row into the table
+  const { meta: insert } = await db
+    .prepare(
+      `INSERT INTO ${tableName} (id, question, category, creator) VALUES(?, ?, ?, ?)`
+    )
+    .bind(
+      7,
+      "Draw a face around your belly button.",
+      "Dare",
+      "@truthordare.lens"
+    )
+    .run();
+
+  // wait for tx finalization
+  await insert.txn!.wait();
+
+  // perform a read query, requesting all rows from the table
   const { results } = await db.prepare(`SELECT * FROM ${tableName};`).all();
   console.log(results);
 };
-fetchData();
-// # end Tableland Quick Start
+
+// insertData();
 
 const people = [
   {
@@ -46,258 +96,95 @@ const people = [
     lastSeen: "3h ago",
     lastSeenDateTime: "2023-01-23T13:23Z",
   },
-  {
-    name: "If you were stranded on an island, who is the one person you would want to be stuck with you?",
-    email: "@dyer84.eth",
-    role: "Business Relations",
-    imageUrl:
-      "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    href: "#",
-    width: 256,
-    height: 256,
-    lastSeen: "3h ago",
-  },
-  {
-    name: "Sing a song for the group.",
-    email: "@lindsaywalton.lens",
-    role: "Front-end Developer",
-    imageUrl:
-      "https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    href: "#",
-    lastSeen: "3h ago",
-    width: 256,
-    height: 256,
-    lastSeenDateTime: "2023-03-23T15:23Z",
-  },
-  {
-    name: "If a movie was made about this group, what sort of characters do you think people would be?",
-    email: "@courtneyhenry.lens",
-    role: "Designer",
-    imageUrl:
-      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    href: "#",
-    lastSeen: "3h ago",
-    width: 256,
-    height: 256,
-    lastSeenDateTime: "2023-01-23T13:23Z",
-  },
-  {
-    name: "What is your most treasured memory?",
-    email: "@truthordare.lens",
-    role: "Director of Product",
-    imageUrl:
-      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    href: "#",
-    width: 256,
-    height: 256,
-    lastSeen: null,
-  },
-  {
-    name: "What is the most exotic food that you have ever eaten?",
-    email: "@truthordare.lens",
-    role: "Director of Product",
-    imageUrl:
-      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    href: "#",
-    width: 256,
-    height: 256,
-    lastSeen: null,
-  },
-  {
-    name: "What is your favorite place to eat out?",
-    email: "@truthordare.lens",
-    role: "Director of Product",
-    imageUrl:
-      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    href: "#",
-    width: 256,
-    height: 256,
-    lastSeen: null,
-  },
-  {
-    name: "Do you know how to swim?",
-    email: "@truthordare.lens",
-    role: "Director of Product",
-    imageUrl:
-      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    href: "#",
-    width: 256,
-    height: 256,
-    lastSeen: null,
-  },
-  {
-    name: "Would you rather be a dolphin or a whale?",
-    email: "@truthordare.lens",
-    role: "Director of Product",
-    imageUrl:
-      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    href: "#",
-    width: 256,
-    height: 256,
-    lastSeen: null,
-  },
-  {
-    name: "What's your favorite film?",
-    email: "@truthordare.lens",
-    role: "Director of Product",
-    imageUrl:
-      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    href: "#",
-    width: 256,
-    height: 256,
-    lastSeen: null,
-  },
-  {
-    name: "Never have I ever colored my hair a crazy color.",
-    email: "@truthordare.lens",
-    role: "Director of Product",
-    imageUrl:
-      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    href: "#",
-    width: 256,
-    height: 256,
-    lastSeen: null,
-  },
-  {
-    name: "Draw a face around your belly button.",
-    email: "@truthordare.lens",
-    role: "Director of Product",
-    imageUrl:
-      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    href: "#",
-    width: 256,
-    height: 256,
-    lastSeen: null,
-  },
-  {
-    name: "What is your worst habit?",
-    email: "@truthordare.lens",
-    role: "Director of Product",
-    imageUrl:
-      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    href: "#",
-    width: 256,
-    height: 256,
-    lastSeen: null,
-  },
-  {
-    name: "What's something in your fridge right now that should probably be thrown out?",
-    email: "@truthordare.lens",
-    role: "Director of Product",
-    imageUrl:
-      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    href: "#",
-    width: 256,
-    height: 256,
-    lastSeen: null,
-  },
-  {
-    name: "What did you think at the time was cool but now you regret?",
-    email: "@truthordare.lens",
-    role: "Director of Product",
-    imageUrl:
-      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    href: "#",
-    width: 256,
-    height: 256,
-    lastSeen: null,
-  },
-  {
-    name: "Never have I ever driven through a red light.",
-    email: "@truthordare.lens",
-    role: "Director of Product",
-    imageUrl:
-      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    href: "#",
-    width: 256,
-    height: 256,
-    lastSeen: null,
-  },
-  {
-    name: "Would you rather be a dinosaur or a mermaid?",
-    email: "@truthordare.lens",
-    role: "Director of Product",
-    imageUrl:
-      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    href: "#",
-    width: 256,
-    height: 256,
-    lastSeen: null,
-  },
 ];
 
 export default function QuestionCard() {
+  const [questions, setQuestions] = useState<Array<any>>([]);
+
+  const fetchData = async () => {
+    const tableName: string = "Truth_or_Dare_80001_7170";
+    interface Schema {
+      id: number;
+      question: string;
+      category: string;
+      creator: string;
+    }
+    const db: Database<Schema> = new Database();
+
+    try {
+      const { results } = await db.prepare(`SELECT * FROM ${tableName};`).all();
+      setQuestions(results);
+    } catch (error) {
+      console.error("Error fetching data from database:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   return (
     <Link href="/question/">
       <ul role="list" className="divide-y divide-zinc-800">
-        {people.map((person) => (
-          <li
-            key={person.email}
-            className="relative flex justify-between gap-x-6 px-4 py-6 hover:bg-zinc-700/30 sm:px-6 lg:px-8"
-          >
-            <div className="flex min-w-0 gap-x-4">
-              <Image
-                className="h-12 w-12 flex-none rounded-full bg-gray-50 blur"
-                src={person.imageUrl}
-                alt=""
-                width={person.width}
-                height={person.height}
-              />
-              <div className="min-w-0 flex-auto">
-                <p className="text-sm font-semibold leading-6 text-gray-300">
-                  <a href={person.href}>
-                    <span className="absolute inset-x-0 -top-px bottom-0" />
-                    {person.name}
-                  </a>
-                </p>
-                <p className="mt-1 flex text-xs leading-5 text-gray-500 blur-sm">
-                  <a
-                    href={`mailto:${person.email}`}
-                    className="relative truncate hover:underline"
-                  >
-                    {person.email}
-                  </a>
-                </p>
-              </div>
-            </div>
-            <div className="flex shrink-0 items-center gap-x-4">
-              <div className="hidden sm:flex sm:flex-col sm:items-end">
-                <div className="flex flex-col sm:flex-row" id="">
-                  <div className="px-1" id="thumbs-up-icon">
-                    <HandThumbUpIcon
-                      className="h-5 w-5 text-gray-400"
-                      aria-hidden="true"
-                    />
-                    <span className="ml-1 text-xs blur-sm">99</span>
-                  </div>
-                  <div className="px-1" id="thumbs-down-icon">
-                    <HandThumbDownIcon className="h-5 w-5 text-gray-400" />
-                    <span className="ml-1 text-xs blur-sm">28</span>
-                  </div>
-                </div>
-                {person.lastSeen ? (
-                  <p className="mt-1 text-xs leading-3 text-gray-500">
-                    Submitted{" "}
-                    <time dateTime={person.lastSeenDateTime}>
-                      {person.lastSeen}
-                    </time>
+        {questions &&
+          questions.map((question) => (
+            <li
+              key={question.id}
+              className="relative flex justify-between gap-x-6 px-4 py-6 hover:bg-zinc-700/30 sm:px-6 lg:px-8"
+            >
+              <div className="flex min-w-0 gap-x-4">
+                <Image
+                  className="blur h-12 w-12 flex-none rounded-full bg-gray-50"
+                  src="/tod.svg" // replace with a default image as there is no imageUrl in the provided schema
+                  alt=""
+                  width={256}
+                  height={256}
+                />
+                <div className="min-w-0 flex-auto">
+                  <p className="text-sm font-semibold leading-6 text-gray-300">
+                    <Link href={`/question/${question.id}`}>
+                      <span className="absolute inset-x-0 -top-px bottom-0" />
+                      {question.question}
+                    </Link>
                   </p>
-                ) : (
-                  <div className="mt-1 flex items-center gap-x-1.5">
-                    <div className="flex-none rounded-full bg-emerald-500/20 p-1">
-                      <div className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
-                    </div>
-                    <p className="text-xs leading-5 text-gray-500">Online</p>
-                  </div>
-                )}
+                  <p className="mt-1 flex text-xs leading-5 text-gray-500 blur-sm">
+                    <Link
+                      href={`mailto:${question.creator}`}
+                      className="relative truncate hover:underline"
+                    >
+                      {question.creator}
+                    </Link>
+                  </p>
+                </div>
               </div>
-              <ChevronRightIcon
-                className="h-5 w-5 flex-none text-gray-400"
-                aria-hidden="true"
-              />
-            </div>
-          </li>
-        ))}
+              <div className="flex shrink-0 items-center gap-x-4">
+                <div className="hidden sm:flex sm:flex-col sm:items-end">
+                  <div className="flex flex-col sm:flex-row" id="">
+                    <div className="px-1" id="thumbs-up-icon">
+                      <HandThumbUpIcon
+                        className="h-5 w-5 text-gray-400"
+                        aria-hidden="true"
+                      />
+                      {/* Dummy values for thumbs up/down, replace them as required */}
+                      <span className="ml-1 text-xs blur-sm">99</span>
+                    </div>
+                    <div className="px-1" id="thumbs-down-icon">
+                      <HandThumbDownIcon className="h-5 w-5 text-gray-400" />
+                      <span className="ml-1 text-xs blur-sm">28</span>
+                    </div>
+                  </div>
+                  {/* Dummy value for lastSeen, replace it as required */}
+                  <p className="mt-1 text-xs leading-3 text-gray-500">
+                    Submitted <time dateTime="2023-01-23T13:23Z">3h ago</time>
+                  </p>
+                </div>
+                <ChevronRightIcon
+                  className="h-5 w-5 flex-none text-gray-400"
+                  aria-hidden="true"
+                />
+              </div>
+            </li>
+          ))}
       </ul>
     </Link>
   );
