@@ -4,5 +4,14 @@ import BottomNav from "./BottomNav";
 import HeadingComponent from "./HeadingComponent";
 import CustomButton from "./CustomButton";
 import Branding from "./Branding";
+import NewQuestion from "./NewQuestion";
 
-export { SEO, TopNav, BottomNav, HeadingComponent, CustomButton, Branding };
+export {
+  SEO,
+  TopNav,
+  BottomNav,
+  HeadingComponent,
+  CustomButton,
+  Branding,
+  NewQuestion,
+};

@@ -22,12 +22,12 @@ export default function Question() {
       <TopNav />
       {/* <Branding /> */}
       <div className="flex flex-col items-center justify-center w-full h-full">
-        <div className="bg-[#1D1A1C] py-16 sm:py-24">
+        <div className="dark:bg-[#1D1A1C] py-16 sm:py-24">
           <div className="relative items-center mb-6 px-10 z-10">
             <Button />
           </div>
           <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
-            <div className="relative isolate overflow-hidden bg-zinc-900 px-6 py-24 shadow-2xl sm:rounded-3xl sm:px-24 xl:py-32">
+            <div className="relative isolate overflow-hidden bg-zinc-900 px-6 py-24 shadow-2xl sm:rounded-3xl sm:px-24 xl:py-32 drop-shadow-xl">
               <h2 className="mx-auto max-w-2xl text-center text-3xl font-bold tracking-tight text-white sm:text-4xl">
                 {id}
               </h2>

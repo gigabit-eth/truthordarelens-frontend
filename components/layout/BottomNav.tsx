@@ -6,11 +6,11 @@ export default function BottomNav() {
 
   const isActive = (path: string) => router.pathname === path;
   return (
-    <footer className="fixed inset-x-0 bottom-0 flex w-full border-t border-gray-300 bg-gradient-to-t from-zinc-200 dark:border-neutral-800 dark:bg-[#1D1A1C] dark:from-inherit lg:border lg:bg-gray-200 lg:dark:bg-[#1D1A1C]">
+    <footer className="fixed inset-x-0 bottom-0 flex w-full border-t border-gray-400 bg-gradient-to-t from-gray-200 dark:border-neutral-800 dark:bg-[#1D1A1C] dark:from-inherit lg:border lg:bg-zinc-200 lg:dark:bg-[#1D1A1C]">
       <Link legacyBehavior href="/">
         <a
           className={`flex items-center justify-center w-1/5 py-4 text-center ${
-            isActive("/") ? "text-[#FFEBB8]" : "text-zinc-700"
+            isActive("/") ? "dark:text-[#FFEBB8] text-[#fff]" : "text-zinc-700"
           }`}
         >
           <QuestionIcon className="p-px w-7 h-7" />
@@ -19,7 +19,9 @@ export default function BottomNav() {
       <Link legacyBehavior href="/scores">
         <a
           className={`flex items-center justify-center w-1/5 py-4 text-center ${
-            isActive("/scores") ? "text-[#FFEBB8]" : "text-zinc-700"
+            isActive("/scores")
+              ? "dark:text-[#FFEBB8] text-[#fff]"
+              : "text-zinc-700"
           }`}
         >
           <VoteIcon className="p-px w-7 h-7" />
@@ -28,7 +30,9 @@ export default function BottomNav() {
       <Link legacyBehavior href="/create">
         <a
           className={`flex items-center justify-center w-1/5 py-4 text-center ${
-            isActive("/create") ? "text-[#FFEBB8]" : "text-zinc-700"
+            isActive("/create")
+              ? "dark:text-[#FFEBB8] text-[#fff]"
+              : "text-zinc-700"
           }`}
         >
           <CreateIcon className="p-px w-7 h-7" />
@@ -37,7 +41,9 @@ export default function BottomNav() {
       <Link legacyBehavior href="/groups">
         <a
           className={`flex items-center justify-center w-1/5 py-4 text-center ${
-            isActive("/groups") ? "text-[#FFEBB8]" : "text-zinc-700"
+            isActive("/groups")
+              ? "dark:text-[#FFEBB8] text-[#fff]"
+              : "text-zinc-700"
           }`}
         >
           <GroupsIcon className="p-px w-7 h-7" />
@@ -46,7 +52,9 @@ export default function BottomNav() {
       <Link legacyBehavior href="/shop">
         <a
           className={`flex items-center justify-center w-1/5 py-4 text-center ${
-            isActive("/shop") ? "text-[#FFEBB8]" : "text-zinc-700"
+            isActive("/shop")
+              ? "dark:text-[#FFEBB8] text-[#fff]"
+              : "text-zinc-700"
           }`}
         >
           <ShopIcon className="p-px w-7 h-7" />

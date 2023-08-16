@@ -16,7 +16,7 @@ export default function Branding() {
         <span className="text-[#40C9FF]">Truth</span> o/r{" "}
         <span className="text-[#EA1BFF]">Dare</span>
       </h1>
-      <h2 className="m-2 tracking-wide uppercase text-xs">
+      <h2 className="mt-2 mb-8 tracking-wide uppercase text-xs">
         Have Fun With Your Lens Frens
       </h2>
     </div>

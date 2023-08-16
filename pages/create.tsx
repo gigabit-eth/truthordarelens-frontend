@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import { SITE_NAME, SITE_DESCRIPTION, SITE_URL } from "@/utils/config";
-import { TopNav, BottomNav, Branding } from "@/components/layout";
+import { TopNav, BottomNav, Branding, NewQuestion } from "@/components/layout";
 
 export default function Create() {
   return (
@@ -19,13 +19,7 @@ export default function Create() {
         <Branding />
       </div>
       <div className="relative flex items-center justify-center w-full h-full flex-grow">
-        <Image
-          className="opacity-5"
-          src="./tod.svg"
-          width={250}
-          height={37}
-          alt="Coming soon"
-        />
+        <NewQuestion />
       </div>
       <BottomNav />
     </main>

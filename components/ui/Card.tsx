@@ -11,7 +11,6 @@ import { Database } from "@tableland/sdk";
 // create database
 const createTable = async () => {
   interface Schema {
-    id: number;
     question: string;
     category: string;
     creator: string;
@@ -23,7 +22,7 @@ const createTable = async () => {
 
   const { meta: create } = await db
     .prepare(
-      `CREATE TABLE ${prefix} (id integer primary key, question text, category text, creator text);`
+      `CREATE TABLE ${prefix} (id INTEGER PRIMARY KEY, question TEXT, category TEXT, creator TEXT);`
     )
     .run();
 
@@ -37,11 +36,11 @@ const createTable = async () => {
 
 // insert into database
 const insertData = async () => {
-  const tableName: string = "Truth_or_Dare_80001_7170";
+  const tableName: string = "Truth_or_Dare_80001_7173";
 
   // interface
   interface Schema {
-    id: number;
+    // id: number;
     question: string;
     category: string;
     creator: string;
@@ -51,12 +50,11 @@ const insertData = async () => {
   // insert a row into the table
   const { meta: insert } = await db
     .prepare(
-      `INSERT INTO ${tableName} (id, question, category, creator) VALUES(?, ?, ?, ?)`
+      `INSERT INTO ${tableName} (question, category, creator) VALUES(?, ?, ?)`
     )
     .bind(
-      7,
-      "Draw a face around your belly button.",
-      "Dare",
+      "What is the most exotic food that you have ever eaten?",
+      "truth",
       "@truthordare.lens"
     )
     .run();
@@ -104,7 +102,7 @@ export default function QuestionCard() {
   const fetchData = async () => {
     const tableName: string = "Truth_or_Dare_80001_7170";
     interface Schema {
-      id: number;
+      // id: number;
       question: string;
       category: string;
       creator: string;
@@ -125,12 +123,12 @@ export default function QuestionCard() {
 
   return (
     <Link href="/question/">
-      <ul role="list" className="divide-y divide-zinc-800">
+      <ul role="list" className="divide-y divide-gray-200 dark:divide-zinc-800">
         {questions &&
           questions.map((question) => (
             <li
               key={question.id}
-              className="relative flex justify-between gap-x-6 px-4 py-6 hover:bg-zinc-700/30 sm:px-6 lg:px-8"
+              className="relative flex justify-between gap-x-6 px-4 py-6 hover:bg-zinc-300/30 dark:hover:bg-zinc-700/30 sm:px-6 lg:px-8"
             >
               <div className="flex min-w-0 gap-x-4">
                 <Image
@@ -141,7 +139,7 @@ export default function QuestionCard() {
                   height={256}
                 />
                 <div className="min-w-0 flex-auto">
-                  <p className="text-sm font-semibold leading-6 text-gray-300">
+                  <p className="text-sm font-semibold leading-6 dark:text-gray-300 text-gray-700">
                     <Link href={`/question/${question.id}`}>
                       <span className="absolute inset-x-0 -top-px bottom-0" />
                       {question.question}
