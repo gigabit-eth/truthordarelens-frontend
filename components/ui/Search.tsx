@@ -8,7 +8,7 @@ export default function SearchBar() {
           type="text"
           name="name"
           id="name"
-          className="block w-full rounded-full border-0 px-4 py-1.5 bg-zinc-200 dark:bg-zinc-900 text-yellow-600 dark:text-[#FFEBB8] shadow-sm ring-1 ring-inset ring-zinc-800 placeholder:text-gray-600 focus:placeholder:text-gray-700 dark:focus:placeholder:text-gray-300 focus:ring-2 focus:ring-inset focus:ring-gray-600 sm:text-sm sm:leading-6 text-center"
+          className="block w-full rounded-full border-0 px-4 py-1.5 bg-[#FDF2D8] dark:bg-zinc-900 text-yellow-800 dark:text-[#FFEBB8] shadow-sm ring-1 ring-inset ring-zinc-800 placeholder:text-gray-600 focus:placeholder:text-gray-700 dark:focus:placeholder:text-gray-300 focus:ring-2 focus:ring-inset focus:ring-gray-600 sm:text-sm sm:leading-6 text-center"
           placeholder="Search database"
         />
       </div>

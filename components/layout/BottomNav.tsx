@@ -6,11 +6,13 @@ export default function BottomNav() {
 
   const isActive = (path: string) => router.pathname === path;
   return (
-    <footer className="fixed inset-x-0 bottom-0 flex w-full bg-[#FDEED8] bg-gradient-to-b from-[#FDF2D8] dark:border-neutral-800 dark:bg-[#1D1A1C] dark:from-inherit lg:border lg:bg-zinc-200 lg:dark:bg-[#1D1A1C]">
+    <footer className="fixed inset-x-0 bottom-0 flex w-full bg-[#FDEED8] bg-gradient-to-b from-[#FDF2D8] dark:border-neutral-800 dark:bg-[#1D1A1C] dark:from-inherit">
       <Link legacyBehavior href="/">
         <a
           className={`flex items-center justify-center w-1/3 py-4 text-center ${
-            isActive("/") ? "dark:text-[#FFEBB8] text-[#fff]" : "text-zinc-700"
+            isActive("/")
+              ? "dark:text-[#FFEBB8] text-[#C6AC8F]"
+              : "text-zinc-700"
           }`}
         >
           <QuestionIcon className="p-px w-7 h-7" />
@@ -19,8 +21,8 @@ export default function BottomNav() {
       <Link legacyBehavior href="/new">
         <a
           className={`flex items-center justify-center w-1/3 py-4 text-center ${
-            isActive("/create")
-              ? "dark:text-[#FFEBB8] text-[#fff]"
+            isActive("/new")
+              ? "dark:text-[#FFEBB8] text-[#C6AC8F]"
               : "text-zinc-700"
           }`}
         >
@@ -30,8 +32,8 @@ export default function BottomNav() {
       <Link legacyBehavior href="/leaderboard">
         <a
           className={`flex items-center justify-center w-1/3 py-4 text-center ${
-            isActive("/scores")
-              ? "dark:text-[#FFEBB8] text-[#fff]"
+            isActive("/leaderboard")
+              ? "dark:text-[#FFEBB8] text-[#C6AC8F]"
               : "text-zinc-700"
           }`}
         >

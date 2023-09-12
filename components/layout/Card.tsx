@@ -18,7 +18,7 @@ const Card = (props: Props) => {
         height={100}
       />
       <Link href={props.href}>
-        <h3 className="mt-3 text-lg font-bold text-white sm:text-xl hover:underline">
+        <h3 className="mt-3 uppercase text-lg font-bold text-white sm:text-xl hover:underline">
           {props.title}
         </h3>
       </Link>

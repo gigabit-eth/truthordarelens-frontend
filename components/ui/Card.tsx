@@ -139,7 +139,7 @@ export default function QuestionCard() {
                   height={256}
                 />
                 <div className="min-w-0 flex-auto">
-                  <p className="text-sm font-semibold leading-6 dark:text-gray-300 text-[#5E503F]">
+                  <p className="text-sm uppercase font-semibold leading-6 dark:text-gray-300 text-[#5E503F]">
                     <Link href={`/question/${question.id}`}>
                       <span className="absolute inset-x-0 -top-px bottom-0" />
                       {question.question}
@@ -160,14 +160,14 @@ export default function QuestionCard() {
                   <div className="flex flex-col sm:flex-row" id="">
                     <div className="px-1" id="thumbs-up-icon">
                       <HandThumbUpIcon
-                        className="h-5 w-5 text-gray-400"
+                        className="h-5 w-5 text-green-400/80"
                         aria-hidden="true"
                       />
                       {/* Dummy values for thumbs up/down, replace them as required */}
                       <span className="ml-1 text-xs blur-sm">99</span>
                     </div>
                     <div className="px-1" id="thumbs-down-icon">
-                      <HandThumbDownIcon className="h-5 w-5 text-gray-400" />
+                      <HandThumbDownIcon className="h-5 w-5 text-pink-500/80" />
                       <span className="ml-1 text-xs blur-sm">28</span>
                     </div>
                   </div>
