@@ -1,3 +1,4 @@
+"use client";
 /* eslint-disable react/no-children-prop */
 import "@rainbow-me/rainbowkit/styles.css";
 import {
@@ -17,10 +18,15 @@ import {
 
 import { configureChains, createConfig, WagmiConfig } from "wagmi";
 import { publicProvider } from "wagmi/providers/public";
+import { InjectedConnector } from "wagmi/connectors/injected";
 
 import { ReactNode } from "react";
 
 import { ETH_CHAINS, WALLET_CONNECT_PROJECT_ID } from "@/utils/config";
+
+// import { LensConfig, development } from "@lens-protocol/react-web";
+// import { bindings as wagmiBindings } from "@lens-protocol/wagmi";
+// import { LensProvider } from "@lens-protocol/react-web";
 
 interface Props {
   children: ReactNode;
@@ -59,21 +65,35 @@ const wagmiConfig = createConfig({
   webSocketPublicClient,
 });
 
+// const lensConfig: LensConfig = {
+//   bindings: wagmiBindings(),
+//   environment: development,
+// };
+
 const Web3Provider = (props: Props) => {
   return (
     <WagmiConfig config={wagmiConfig}>
+      {/* <LensProvider config={lensConfig}> */}
       <RainbowKitProvider
         chains={chains}
-        // theme={{
-        //   lightMode: lightTheme({ overlayBlur: "small" }),
-        //   darkMode: darkTheme({ overlayBlur: "small" }),
-        // }}
-        theme={darkTheme({
-          ...darkTheme.accentColors.green,
-          overlayBlur: "small",
-          accentColorForeground: "#fff",
-          fontStack: "system",
-        })}
+        theme={{
+          lightMode: lightTheme({
+            overlayBlur: "small",
+            fontStack: "system",
+          }),
+          darkMode: darkTheme({
+            overlayBlur: "small",
+            fontStack: "system",
+            accentColorForeground: "#fff",
+            accentColor: "green",
+          }),
+        }}
+        // theme={darkTheme({
+        //   ...darkTheme.accentColors.green,
+        //   overlayBlur: "small",
+        //   accentColorForeground: "#fff",
+        //   fontStack: "system",
+        // })}
         appInfo={{
           appName: "Truth o/r Dare",
           learnMoreUrl: "https://truthordare.lol/about",
@@ -81,6 +101,7 @@ const Web3Provider = (props: Props) => {
       >
         {props.children}
       </RainbowKitProvider>
+      {/* </LensProvider> */}
     </WagmiConfig>
   );
 };

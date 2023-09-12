@@ -36,7 +36,7 @@ const createTable = async () => {
 
 // insert into database
 const insertData = async () => {
-  const tableName: string = "Truth_or_Dare_80001_7173";
+  const tableName: string = "Truth_or_Dare_80001_7170";
 
   // interface
   interface Schema {
@@ -52,11 +52,7 @@ const insertData = async () => {
     .prepare(
       `INSERT INTO ${tableName} (question, category, creator) VALUES(?, ?, ?)`
     )
-    .bind(
-      "What is the most exotic food that you have ever eaten?",
-      "truth",
-      "@truthordare.lens"
-    )
+    .bind("Do you have a reoccurring dream?", "truth", "@truthordare.lens")
     .run();
 
   // wait for tx finalization
@@ -119,16 +115,20 @@ export default function QuestionCard() {
 
   useEffect(() => {
     fetchData();
+    // insertData();
   }, []);
 
   return (
     <Link href="/question/">
-      <ul role="list" className="divide-y divide-gray-200 dark:divide-zinc-800">
+      <ul
+        role="list"
+        className="divide-y divide-[#C6AC8F] dark:divide-zinc-800"
+      >
         {questions &&
           questions.map((question) => (
             <li
               key={question.id}
-              className="relative flex justify-between gap-x-6 px-4 py-6 hover:bg-zinc-300/30 dark:hover:bg-zinc-700/30 sm:px-6 lg:px-8"
+              className="relative flex justify-between gap-x-6 px-4 py-6 hover:bg-zinc-300/20 dark:hover:bg-zinc-700/30 sm:px-6 lg:px-8"
             >
               <div className="flex min-w-0 gap-x-4">
                 <Image
@@ -139,7 +139,7 @@ export default function QuestionCard() {
                   height={256}
                 />
                 <div className="min-w-0 flex-auto">
-                  <p className="text-sm font-semibold leading-6 dark:text-gray-300 text-gray-700">
+                  <p className="text-sm font-semibold leading-6 dark:text-gray-300 text-[#5E503F]">
                     <Link href={`/question/${question.id}`}>
                       <span className="absolute inset-x-0 -top-px bottom-0" />
                       {question.question}
