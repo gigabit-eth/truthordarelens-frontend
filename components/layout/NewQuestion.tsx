@@ -2,37 +2,7 @@ import Image from "next/image";
 import { CalendarDaysIcon, HandRaisedIcon } from "@heroicons/react/24/outline";
 import { useState, useRef } from "react";
 import { Database } from "@tableland/sdk";
-
-// // insert into database
-// const insertData = async () => {
-//   const tableName: string = "Truth_or_Dare_80001_7170";
-
-//   // interface
-//   interface Schema {
-//     id: number;
-//     question: string;
-//     category: string;
-//     creator: string;
-//   }
-
-//   const db: Database<Schema> = new Database();
-//   // insert a row into the table
-//   const { meta: insert } = await db
-//     .prepare(
-//       `INSERT INTO ${tableName} (question, category, creator) VALUES(?, ?, ?)`
-//     )
-//     .bind("Do you have a reoccurring dream?", "truth", "@truthordare.lens")
-//     .run();
-
-//   // wait for tx finalization
-//   await insert.txn!.wait();
-
-//   // perform a read query, requesting all rows from the table
-//   const { results } = await db.prepare(`SELECT * FROM ${tableName};`).all();
-//   console.log(results);
-// };
-
-// insertData();
+import { toast, Toaster } from "react-hot-toast";
 
 export default function NewQuestion() {
   const [question, setQuestion] = useState("");
@@ -40,26 +10,33 @@ export default function NewQuestion() {
   const [creator, setCreator] = useState("");
 
   const insertData = async () => {
-    const tableName: string = "Truth_or_Dare_80001_7170";
+    try {
+      const tableName: string = "Truth_or_Dare_80001_7170";
 
-    interface Schema {
-      id: number;
-      question: string;
-      category: string;
-      creator: string;
+      interface Schema {
+        id: number;
+        question: string;
+        category: string;
+        creator: string;
+      }
+
+      const db: Database<Schema> = new Database();
+      const { meta: insert } = await db
+        .prepare(
+          `INSERT INTO ${tableName} (question, category, creator) VALUES(?, ?, ?)`
+        )
+        .bind(question, category, creator)
+        .run();
+
+      await insert.txn!.wait();
+      const { results } = await db.prepare(`SELECT * FROM ${tableName};`).all();
+      console.log(results);
+
+      toast.success("Question created!");
+    } catch (error) {
+      console.error("Error inserting data into database:", error);
+      toast.error("Error creating question");
     }
-
-    const db: Database<Schema> = new Database();
-    const { meta: insert } = await db
-      .prepare(
-        `INSERT INTO ${tableName} (question, category, creator) VALUES(?, ?, ?)`
-      )
-      .bind(question, category, creator)
-      .run();
-
-    await insert.txn!.wait();
-    const { results } = await db.prepare(`SELECT * FROM ${tableName};`).all();
-    console.log(results);
   };
 
   const handleSubmit = (e: any) => {
@@ -68,14 +45,14 @@ export default function NewQuestion() {
   };
 
   return (
-    <div className="relative isolate overflow-hidden rounded-3xl bg-gray-900 py-16 sm:py-24 lg:py-32 drop-shadow-xl">
+    <div className="relative isolate overflow-hidden rounded-3xl bg-[#FEF5E9] py-8 sm:py-16 lg:py-24 drop-shadow-xl">
       <div className="mx-auto px-6 lg:px-8">
         <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-1">
           <div className="max-w-xl lg:max-w-lg">
-            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+            <h2 className="text-3xl font-bold tracking-tight text-[#5E503F] sm:text-4xl">
               Create a new question
             </h2>
-            <p className="mt-4 text-lg leading-8 text-gray-300">
+            <p className="mt-4 text-lg leading-8 text-gray-700">
               Nostrud amet eu ullamco nisi aute in ad minim nostrud adipisicing
               velit quis. Duis tempor incididunt dolore.
             </p>
@@ -134,7 +111,8 @@ export default function NewQuestion() {
           </div>
         </div>
       </div>
-      <div
+      {/* gradient */}
+      {/* <div
         className="absolute left-1/2 top-0 -z-10 -translate-x-1/2 blur-3xl xl:-top-6"
         aria-hidden="true"
       >
@@ -145,7 +123,16 @@ export default function NewQuestion() {
               "polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)",
           }}
         />
-      </div>
+      </div> */}
+      <Toaster
+        position="bottom-center"
+        toastOptions={{
+          // Define default styles
+          style: {
+            bottom: "250px",
+          },
+        }}
+      />
     </div>
   );
 }

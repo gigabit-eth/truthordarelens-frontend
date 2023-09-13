@@ -5,7 +5,7 @@ import { TopNav, BottomNav, Branding, NewQuestion } from "@/components/layout";
 
 export default function Create() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <main className="flex min-h-screen flex-col items-center justify-between p-2">
       <Head>
         <title>{SITE_NAME}</title>
         <meta name="description" content={SITE_DESCRIPTION} />
@@ -15,10 +15,10 @@ export default function Create() {
         />
       </Head>
       <TopNav />
-      <div className="flex flex-col items-center justify-center w-full h-full">
+      <div className="flex flex-col items-center justify-center w-full h-full pt-12">
         <Branding />
       </div>
-      <div className="relative flex items-center justify-center w-full h-full flex-grow">
+      <div className="relative flex items-center justify-center w-full h-full flex-grow pt-24">
         <NewQuestion />
       </div>
       <BottomNav />
