@@ -5,7 +5,7 @@ import { TopNav, BottomNav, Branding } from "@/components/layout";
 
 export default function Vote() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <main className="flex min-h-screen flex-col items-center justify-between pt-24">
       <Head>
         <title>{SITE_NAME}</title>
         <meta name="description" content={SITE_DESCRIPTION} />

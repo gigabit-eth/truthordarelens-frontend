@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
+import { Database } from "@tableland/sdk";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -6,7 +7,6 @@ import {
   HandThumbUpIcon,
   HandThumbDownIcon,
 } from "@heroicons/react/20/solid";
-import { Database } from "@tableland/sdk";
 
 // create database
 const createTable = async () => {
@@ -61,42 +61,82 @@ const people = [
   },
 ];
 
+interface Schema {
+  id: number;
+  question: string;
+  category: string;
+  creator: string;
+}
+
 export default function QuestionCard() {
-  const [questions, setQuestions] = useState<Array<any>>([]);
+  const [questions, setQuestions] = useState<Array<Schema>>([]);
+  const [page, setPage] = useState(1);
+  const [loading, setLoading] = useState(false);
+  const [hasMore, setHasMore] = useState(true);
+  const [fetching, setFetching] = useState(false); // for infinite scroll
+  const loader = useRef(null);
 
-  const fetchData = async (id: string) => {
-    const tableName: string = "Truth_or_Dare_80001_7170";
-    interface Schema {
-      id: number;
-      question: string;
-      category: string;
-      creator: string;
-    }
-    const db: Database<Schema> = new Database();
+  const fetchData = useCallback(
+    async (page: number, pageSize: number) => {
+      if (!hasMore || fetching) return;
 
-    try {
-      let results;
-      if (id === "all") {
-        const response = await db.prepare(`SELECT * FROM ${tableName};`).all();
-        results = response.results;
-      } else {
+      setFetching(true);
+
+      const tableName: string = "Truth_or_Dare_80001_7170";
+      const db: Database<Schema> = new Database();
+
+      setLoading(true);
+
+      try {
+        const offset = (page - 1) * pageSize;
         const response = await db
-          .prepare(`SELECT * FROM ${tableName} WHERE id = ?;`)
-          .bind(id)
+          .prepare(`SELECT * FROM ${tableName} LIMIT ? OFFSET ?;`)
+          .bind(pageSize, offset)
           .all();
-        results = response.results;
-        console.log("Results:", results);
+        const results = response.results;
+
+        if (results.length === 0 || results.length <= pageSize) {
+          setHasMore(false);
+        }
+
+        setQuestions((prevQuestions) => [...prevQuestions, ...results]);
+      } catch (error) {
+        console.error("Error fetching data from database:", error);
+      } finally {
+        setLoading(false);
+        setFetching(false);
       }
-      setQuestions(results);
-    } catch (error) {
-      console.error("Error fetching data from database:", error);
-    }
-  };
+    },
+    [hasMore, fetching]
+  );
+
+  const handleObserver = useCallback(
+    (entities: IntersectionObserverEntry[]) => {
+      const target = entities[0];
+      if (target.isIntersecting) {
+        const newPage = page + 1;
+        setPage(newPage);
+        fetchData(newPage, 10);
+      }
+    },
+    [page, fetchData]
+  );
 
   useEffect(() => {
-    fetchData("all");
-    // insertData();
-  }, []);
+    var options = {
+      root: null,
+      rootMargin: "20px",
+      threshold: 1.0,
+    };
+    const observer = new IntersectionObserver(handleObserver, options);
+    if (loader.current) {
+      observer.observe(loader.current);
+    }
+  }, [handleObserver]);
+
+  useEffect(() => {
+    fetchData(page, 10);
+  }, [fetchData, page]);
 
   return (
     <>
@@ -104,65 +144,74 @@ export default function QuestionCard() {
         role="list"
         className="divide-y divide-[#C6AC8F] dark:divide-zinc-800"
       >
-        {questions &&
-          questions.map((question) => (
-            <li
-              key={question.id}
-              className="relative flex justify-between gap-x-6 px-4 py-6 hover:bg-zinc-300/20 dark:hover:bg-zinc-700/30 sm:px-6 lg:px-8"
-            >
-              <div className="flex min-w-0 gap-x-4">
-                <Image
-                  className="blur h-12 w-12 flex-none rounded-full bg-gray-50"
-                  src="/tod.svg" // replace with a default image as there is no imageUrl in the provided schema
-                  alt=""
-                  width={256}
-                  height={256}
-                />
-                <div className="min-w-0 flex-auto">
-                  <p className="text-sm uppercase font-semibold leading-6 dark:text-gray-300 text-[#5E503F]">
-                    <Link href={`/question/${question.id}`}>
-                      <span className="absolute inset-x-0 -top-px bottom-0" />
-                      {question.question}
-                    </Link>
-                  </p>
-                  <p className="mt-1 flex text-xs leading-5 text-gray-500 blur-sm">
-                    <Link
-                      href={`mailto:${question.creator}`}
-                      className="relative truncate hover:underline"
-                    >
-                      {question.creator}
-                    </Link>
-                  </p>
-                </div>
+        {questions.map((question) => (
+          <li
+            key={question.id}
+            className="relative flex justify-between gap-x-6 px-4 py-6 hover:bg-zinc-300/20 dark:hover:bg-zinc-700/30 sm:px-6 lg:px-8"
+          >
+            <div className="flex min-w-0 gap-x-4">
+              <Image
+                className="blur h-12 w-12 flex-none rounded-full bg-gray-50"
+                src="/tod.svg" // replace with a default image as there is no imageUrl in the provided schema
+                alt=""
+                width={256}
+                height={256}
+              />
+              <div className="min-w-0 flex-auto">
+                <p className="text-sm uppercase font-semibold leading-6 dark:text-gray-300 text-[#5E503F]">
+                  <Link href={`/question/${question.id}`}>
+                    <span className="absolute inset-x-0 -top-px bottom-0" />
+                    {question.question}
+                  </Link>
+                </p>
+                <p className="mt-1 flex text-xs leading-5 text-gray-500 blur-sm">
+                  <Link
+                    href={`mailto:${question.creator}`}
+                    className="relative truncate hover:underline"
+                  >
+                    {question.creator}
+                  </Link>
+                </p>
               </div>
-              <div className="flex shrink-0 items-center gap-x-4">
-                <div className="hidden sm:flex sm:flex-col sm:items-end">
-                  <div className="flex flex-col sm:flex-row" id="">
-                    <div className="px-1" id="thumbs-up-icon">
-                      <HandThumbUpIcon
-                        className="h-5 w-5 text-green-400/80"
-                        aria-hidden="true"
-                      />
-                      {/* Dummy values for thumbs up/down, replace them as required */}
-                      <span className="ml-1 text-xs blur-sm">99</span>
-                    </div>
-                    <div className="px-1" id="thumbs-down-icon">
-                      <HandThumbDownIcon className="h-5 w-5 text-pink-500/80" />
-                      <span className="ml-1 text-xs blur-sm">28</span>
-                    </div>
+            </div>
+            <div className="flex shrink-0 items-center gap-x-4">
+              <div className="hidden sm:flex sm:flex-col sm:items-end">
+                <div className="flex flex-col sm:flex-row" id="">
+                  <div className="px-1" id="thumbs-up-icon">
+                    <HandThumbUpIcon
+                      className="h-5 w-5 text-green-400/80"
+                      aria-hidden="true"
+                    />
+                    {/* Dummy values for thumbs up/down, replace them as required */}
+                    <span className="ml-1 text-xs blur-sm">99</span>
                   </div>
-                  {/* Dummy value for lastSeen, replace it as required */}
-                  <p className="mt-1 text-xs leading-3 text-gray-500">
-                    Submitted <time dateTime="2023-01-23T13:23Z">3h ago</time>
-                  </p>
+                  <div className="px-1" id="thumbs-down-icon">
+                    <HandThumbDownIcon className="h-5 w-5 text-pink-500/80" />
+                    <span className="ml-1 text-xs blur-sm">28</span>
+                  </div>
                 </div>
-                <ChevronRightIcon
-                  className="h-5 w-5 flex-none text-gray-400"
-                  aria-hidden="true"
-                />
+                {/* Dummy value for lastSeen, replace it as required */}
+                <p className="mt-1 text-xs leading-3 text-gray-500">
+                  Submitted <time dateTime="2023-01-23T13:23Z">3h ago</time>
+                </p>
               </div>
-            </li>
-          ))}
+              <ChevronRightIcon
+                className="h-5 w-5 flex-none text-gray-400"
+                aria-hidden="true"
+              />
+            </div>
+          </li>
+        ))}
+        <div
+          className="loading w-full h-20 pt-12 flex items-center justify-center"
+          ref={loader}
+        >
+          {loading && (
+            <p className="text-3xl font-bold italic text-gray-500">
+              Loading...
+            </p>
+          )}
+        </div>
       </ul>
     </>
   );

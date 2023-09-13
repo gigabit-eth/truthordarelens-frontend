@@ -20,11 +20,11 @@ export default function Create() {
         <div className="">
           <Branding />
         </div>
-        <div className="">
+        {/* <div className="">
           <SearchBar />
-        </div>
+        </div> */}
       </div>
-      <div className="relative flex items-center justify-center w-full h-full flex-grow mb-12">
+      <div className="relative flex items-center justify-center w-full h-full flex-grow sm:mb-20">
         <NewQuestion />
       </div>
       <BottomNav />

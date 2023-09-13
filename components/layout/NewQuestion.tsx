@@ -8,8 +8,11 @@ export default function NewQuestion() {
   const [question, setQuestion] = useState("");
   const [category, setCategory] = useState("");
   const [creator, setCreator] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const insertData = async () => {
+    setLoading(true); // Set loading to true when the function is called
+    const toastId = toast.loading("Transaction is being confirmed..."); // Display loading
     try {
       const tableName: string = "Truth_or_Dare_80001_7170";
 
@@ -32,10 +35,12 @@ export default function NewQuestion() {
       const { results } = await db.prepare(`SELECT * FROM ${tableName};`).all();
       console.log(results);
 
-      toast.success("Question created!");
+      toast.success("Question created!", { id: toastId });
     } catch (error) {
       console.error("Error inserting data into database:", error);
-      toast.error("Error creating question");
+      toast.error("Error creating question", { id: toastId });
+    } finally {
+      setLoading(false); // Set loading to false when the function is done
     }
   };
 
