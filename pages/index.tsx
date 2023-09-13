@@ -1,8 +1,6 @@
-import Image from "next/image";
 import Head from "next/head";
 import { SITE_NAME, SITE_DESCRIPTION, SITE_URL } from "@/utils/config";
 import { Inter } from "next/font/google";
-import Link from "next/link";
 import { TopNav, BottomNav } from "@/components/layout";
 import QuestionCard from "@/components/ui/Card";
 import SearchBar from "@/components/ui/Search";
@@ -33,7 +31,7 @@ export default function Home() {
         <div className="">
           <Branding />
         </div>
-        <div className="m-4">
+        <div className="">
           <SearchBar />
         </div>
         <div className="mt-12 mb-24">

@@ -45,14 +45,14 @@ export default function NewQuestion() {
   };
 
   return (
-    <div className="relative isolate overflow-hidden rounded-3xl bg-[#FEF5E9] py-8 sm:py-16 lg:py-24 drop-shadow-xl">
+    <div className="relative isolate overflow-hidden rounded-3xl bg-[#FEF5E9] dark:bg-[#212021] py-8 sm:py-16 lg:py-24 drop-shadow-xl">
       <div className="mx-auto px-6 lg:px-8">
         <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-1">
           <div className="max-w-xl lg:max-w-lg">
             <h2 className="text-3xl font-bold tracking-tight text-[#5E503F] sm:text-4xl">
               Create a new question
             </h2>
-            <p className="mt-4 text-lg leading-8 text-gray-700">
+            <p className="mt-4 text-lg leading-8 text-gray-700 dark:text-gray-400">
               Nostrud amet eu ullamco nisi aute in ad minim nostrud adipisicing
               velit quis. Duis tempor incididunt dolore.
             </p>

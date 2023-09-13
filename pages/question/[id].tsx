@@ -1,11 +1,12 @@
 import Head from "next/head";
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import { useRouter } from "next/router";
 import { SITE_NAME, SITE_DESCRIPTION, SITE_URL } from "@/utils/config";
 import { TopNav, BottomNav, Branding } from "@/components/layout";
 import Link from "next/link";
 import Button from "@/components/ui/Button";
-import { useRouter } from "next/router";
+import { Database } from "@tableland/sdk";
 
 type QuestionType = {
   question: string;
@@ -13,33 +14,48 @@ type QuestionType = {
   creator: string;
 };
 
+interface Question {
+  id: number;
+  question: string;
+  category: string;
+  creator: string;
+}
+
 export default function Question() {
   const router = useRouter();
   const { id } = router.query;
-  const [question, setQuestion] = useState<QuestionType | null>(null);
+  const [question, setQuestion] = useState<Question | null>(null);
 
   // Fetch the question from your data source using the id
   useEffect(() => {
-    // const fetchQuestion = async () => {
-    //   const res = await fetch(`/api/questions/${id}`);
-    //   const newQuestion = await res.json();
-    //   setQuestion(newQuestion);
-    // };
-    // fetchQuestion();
-    const fetchData = async (id: string | string[]) => {
-      const res = await fetch(`/question/${id}`);
-      const newQuestion = await res.json();
-      setQuestion(newQuestion);
-    };
-    if (id) {
-      fetchData(id);
-      console.log(id);
-    }
-  }, [id, question]);
+    const fetchQuestion = async (id: string) => {
+      const tableName: string = "Truth_or_Dare_80001_7170";
+      const db: Database<Question> = new Database();
 
-  useEffect(() => {
-    console.log(question);
-  }, [question]);
+      try {
+        const response = await db
+          .prepare(`SELECT * FROM ${tableName} WHERE id = ?;`)
+          .bind(id)
+          .all();
+
+        const results = response.results;
+
+        if (results.length > 0) {
+          setQuestion(results[0]); // Set the question state
+        }
+      } catch (error) {
+        console.error("Error fetching question:", error);
+      }
+    };
+
+    if (id) {
+      fetchQuestion(id as string);
+    }
+  }, [id]);
+
+  // useEffect(() => {
+  //   console.log(question);
+  // }, [question]);
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between">
@@ -59,14 +75,16 @@ export default function Question() {
             <Button />
           </div>
           <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
-            <div className="relative isolate overflow-hidden bg-[#FEF5E9] px-6 py-24 shadow-2xl sm:rounded-3xl sm:px-24 xl:py-32 drop-shadow-xl">
-              <h2 className="mx-auto max-w-2xl text-center text-3xl font-bold tracking-tight text-[#5E503F] sm:text-4xl">
-                {question?.question}
+            <div className="relative isolate overflow-hidden bg-[#FEF5E9] dark:bg-[#1D1A1C] px-6 py-24 shadow-2xl sm:rounded-3xl sm:px-24 xl:py-32 drop-shadow-xl">
+              <h2 className="mx-auto max-w-2xl text-center text-3xl font-bold tracking-tight text-[#5E503F] dark:text-gray-300 sm:text-4xl">
+                {question && (
+                  <>
+                    <h1 className="">{question.question}</h1>
+                    <p className="text-lg uppercase">{question.category}</p>
+                    <p className="">{question.creator}</p>
+                  </>
+                )}
               </h2>
-              <p className="mx-auto mt-2 max-w-xl text-center text-lg leading-8 text-gray-600">
-                Reprehenderit ad esse et non officia in nulla. Id proident
-                tempor incididunt nostrud nulla et culpa.
-              </p>
               {/* <svg
                 viewBox="0 0 1024 1024"
                 className="absolute left-1/2 top-1/2 -z-10 h-[64rem] w-[64rem] -translate-x-1/2"

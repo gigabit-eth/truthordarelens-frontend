@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function Branding() {
   return (
     <div className="flex flex-col items-center justify-center w-full h-full">
-      <div className="absolute mt-60">
+      <div className="">
         <div className="flex items-center justify-center">
           <Image
             src="./tod.svg"

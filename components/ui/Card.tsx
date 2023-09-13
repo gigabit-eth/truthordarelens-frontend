@@ -85,6 +85,7 @@ export default function QuestionCard() {
           .bind(id)
           .all();
         results = response.results;
+        console.log("Results:", results);
       }
       setQuestions(results);
     } catch (error) {
