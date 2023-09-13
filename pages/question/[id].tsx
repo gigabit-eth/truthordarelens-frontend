@@ -79,9 +79,9 @@ export default function Question() {
               <h2 className="mx-auto max-w-2xl text-center text-3xl font-bold tracking-tight text-[#5E503F] dark:text-gray-300 sm:text-4xl">
                 {question && (
                   <>
-                    <h1 className="">{question.question}</h1>
-                    <p className="text-lg uppercase">{question.category}</p>
-                    <p className="">{question.creator}</p>
+                    <p className="text-2xl uppercase">{question.category}</p>
+                    <h1 className="mt-4">{question.question}</h1>
+                    <p className="mt-6">{question.creator}</p>
                   </>
                 )}
               </h2>

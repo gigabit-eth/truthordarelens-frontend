@@ -60,7 +60,8 @@ export default function NewQuestion() {
             <p className="mt-4 text-lg leading-8 text-gray-700 dark:text-gray-400">
               Whether you are looking to challenge your friends, uncover deep
               secrets, or simply have a laugh, Truth o/r Dare offers an engaging
-              experience tailored for memorable moments.
+              experience tailored for memorable moments. Note: Always play
+              responsibly and ensure all dares are safe and consensual.
             </p>
             <div className="mt-6 flex max-w-md gap-x-4">
               <label htmlFor="email-address" className="sr-only">

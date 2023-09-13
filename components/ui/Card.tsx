@@ -122,6 +122,7 @@ export default function QuestionCard() {
       rootMargin: "20px",
       threshold: 1.0,
     };
+
     const observer = new IntersectionObserver(handleObserver, options);
     if (loader.current) {
       observer.observe(loader.current);
@@ -136,7 +137,7 @@ export default function QuestionCard() {
     <>
       <ul
         role="list"
-        className="divide-y divide-[#C6AC8F] dark:divide-zinc-800"
+        className="divide-y divide-[#ebd4ba] dark:divide-zinc-800"
       >
         {questions.map((question) => (
           <li
