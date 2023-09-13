@@ -1,8 +1,72 @@
 import Image from "next/image";
-
 import { CalendarDaysIcon, HandRaisedIcon } from "@heroicons/react/24/outline";
+import { useState, useRef } from "react";
+import { Database } from "@tableland/sdk";
+
+// // insert into database
+// const insertData = async () => {
+//   const tableName: string = "Truth_or_Dare_80001_7170";
+
+//   // interface
+//   interface Schema {
+//     id: number;
+//     question: string;
+//     category: string;
+//     creator: string;
+//   }
+
+//   const db: Database<Schema> = new Database();
+//   // insert a row into the table
+//   const { meta: insert } = await db
+//     .prepare(
+//       `INSERT INTO ${tableName} (question, category, creator) VALUES(?, ?, ?)`
+//     )
+//     .bind("Do you have a reoccurring dream?", "truth", "@truthordare.lens")
+//     .run();
+
+//   // wait for tx finalization
+//   await insert.txn!.wait();
+
+//   // perform a read query, requesting all rows from the table
+//   const { results } = await db.prepare(`SELECT * FROM ${tableName};`).all();
+//   console.log(results);
+// };
+
+// insertData();
 
 export default function NewQuestion() {
+  const [question, setQuestion] = useState("");
+  const [category, setCategory] = useState("");
+  const [creator, setCreator] = useState("");
+
+  const insertData = async () => {
+    const tableName: string = "Truth_or_Dare_80001_7170";
+
+    interface Schema {
+      id: number;
+      question: string;
+      category: string;
+      creator: string;
+    }
+
+    const db: Database<Schema> = new Database();
+    const { meta: insert } = await db
+      .prepare(
+        `INSERT INTO ${tableName} (question, category, creator) VALUES(?, ?, ?)`
+      )
+      .bind(question, category, creator)
+      .run();
+
+    await insert.txn!.wait();
+    const { results } = await db.prepare(`SELECT * FROM ${tableName};`).all();
+    console.log(results);
+  };
+
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+    insertData();
+  };
+
   return (
     <div className="relative isolate overflow-hidden rounded-3xl bg-gray-900 py-16 sm:py-24 lg:py-32 drop-shadow-xl">
       <div className="mx-auto px-6 lg:px-8">
@@ -20,10 +84,11 @@ export default function NewQuestion() {
                 Question
               </label>
               <input
-                id="email-address"
-                name="email"
-                type="email"
-                autoComplete="email"
+                id="newQuestion"
+                onChange={(e) => setQuestion(e.target.value)}
+                name="newQuestion"
+                type="text"
+                autoComplete="text"
                 required
                 className="min-w-0 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
                 placeholder="Enter your question"
@@ -35,6 +100,7 @@ export default function NewQuestion() {
               </label>
               <input
                 id="category"
+                onChange={(e) => setCategory(e.target.value)}
                 name="category"
                 type="text"
                 required
@@ -46,49 +112,23 @@ export default function NewQuestion() {
               <label htmlFor="email-address" className="sr-only">
                 Creator
               </label>
-              <p className="text-white">
-                Created by:{" "}
-                <span className="text-indigo-500 font-semibold">John Doe</span>
-              </p>
-            </div>
-            <div className="mt-6 flex max-w-md gap-x-4">
-              <label htmlFor="email-address" className="sr-only">
-                Collect settings
-              </label>
-              <div className="flex items-center">
-                <input
-                  type="checkbox"
-                  className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
-                />
-                <label
-                  htmlFor="comments"
-                  className="ml-3 text-sm font-medium text-gray-300"
-                >
-                  Collect section 1
-                </label>
-              </div>
-            </div>
-            <div className="mt-6 flex max-w-md gap-x-4">
-              <label htmlFor="email-address" className="sr-only">
-                Collect settings 2
-              </label>
-              <div className="flex items-center">
-                <input
-                  type="checkbox"
-                  className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
-                />
-                <label
-                  htmlFor="comments"
-                  className="ml-3 text-sm font-medium text-gray-300"
-                >
-                  Collect section 2
-                </label>
-              </div>
+              <input
+                id="creator"
+                onChange={(e) => setCreator(e.target.value)}
+                name="creator"
+                type="text"
+                required
+                className="min-w-0 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
+                placeholder="creator name"
+              />
             </div>
           </div>
           {/* a container that takes up the entire container to hold a full width button */}
           <div className="flex items-center justify-center">
-            <button className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-500 hover:bg-indigo-600 md:py-4 md:text-lg md:px-10">
+            <button
+              onClick={handleSubmit}
+              className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-500 hover:bg-indigo-600 md:py-4 md:text-lg md:px-10"
+            >
               Create
             </button>
           </div>

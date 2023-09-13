@@ -34,37 +34,6 @@ const createTable = async () => {
 
 // createTable();
 
-// insert into database
-const insertData = async () => {
-  const tableName: string = "Truth_or_Dare_80001_7170";
-
-  // interface
-  interface Schema {
-    // id: number;
-    question: string;
-    category: string;
-    creator: string;
-  }
-
-  const db: Database<Schema> = new Database();
-  // insert a row into the table
-  const { meta: insert } = await db
-    .prepare(
-      `INSERT INTO ${tableName} (question, category, creator) VALUES(?, ?, ?)`
-    )
-    .bind("Do you have a reoccurring dream?", "truth", "@truthordare.lens")
-    .run();
-
-  // wait for tx finalization
-  await insert.txn!.wait();
-
-  // perform a read query, requesting all rows from the table
-  const { results } = await db.prepare(`SELECT * FROM ${tableName};`).all();
-  console.log(results);
-};
-
-// insertData();
-
 const people = [
   {
     name: "What is the most recent life lesson you've learned?",
@@ -95,10 +64,10 @@ const people = [
 export default function QuestionCard() {
   const [questions, setQuestions] = useState<Array<any>>([]);
 
-  const fetchData = async () => {
+  const fetchData = async (id: string) => {
     const tableName: string = "Truth_or_Dare_80001_7170";
     interface Schema {
-      // id: number;
+      id: number;
       question: string;
       category: string;
       creator: string;
@@ -106,7 +75,17 @@ export default function QuestionCard() {
     const db: Database<Schema> = new Database();
 
     try {
-      const { results } = await db.prepare(`SELECT * FROM ${tableName};`).all();
+      let results;
+      if (id === "all") {
+        const response = await db.prepare(`SELECT * FROM ${tableName};`).all();
+        results = response.results;
+      } else {
+        const response = await db
+          .prepare(`SELECT * FROM ${tableName} WHERE id = ?;`)
+          .bind(id)
+          .all();
+        results = response.results;
+      }
       setQuestions(results);
     } catch (error) {
       console.error("Error fetching data from database:", error);
@@ -114,12 +93,12 @@ export default function QuestionCard() {
   };
 
   useEffect(() => {
-    fetchData();
+    fetchData("all");
     // insertData();
   }, []);
 
   return (
-    <Link href="/question/">
+    <>
       <ul
         role="list"
         className="divide-y divide-[#C6AC8F] dark:divide-zinc-800"
@@ -184,6 +163,6 @@ export default function QuestionCard() {
             </li>
           ))}
       </ul>
-    </Link>
+    </>
   );
 }

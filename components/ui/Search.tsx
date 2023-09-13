@@ -14,7 +14,7 @@ export default function SearchBar() {
       </div>
       <div className="mt-4 text-center text-sm uppercase text-zinc-600 hover:text-[#40C9FF]">
         <Link
-          href="https://testnets.opensea.io/assets/mumbai/0x4b48841d4b32c4650e4abc117a03fe8b51f38f68/7172"
+          href="https://testnets.opensea.io/assets/mumbai/0x4b48841d4b32c4650e4abc117a03fe8b51f38f68/7170"
           target="_blank"
         >
           OpenSea
