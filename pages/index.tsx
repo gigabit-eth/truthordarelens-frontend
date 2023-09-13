@@ -30,7 +30,9 @@ export default function Home() {
       </Head>
       <TopNav />
       <div className="flex flex-col items-center justify-center w-full h-full">
-        <Branding />
+        <div className="">
+          <Branding />
+        </div>
         <div className="m-4">
           <SearchBar />
         </div>

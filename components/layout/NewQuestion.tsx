@@ -67,7 +67,7 @@ export default function NewQuestion() {
                 type="text"
                 autoComplete="text"
                 required
-                className="min-w-0 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
+                className="min-w-0 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-[#5E503F] shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-[#5E503F] sm:text-sm sm:leading-6"
                 placeholder="Enter your question"
               />
             </div>
@@ -81,7 +81,7 @@ export default function NewQuestion() {
                 name="category"
                 type="text"
                 required
-                className="min-w-0 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
+                className="min-w-0 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-[#5E503F] shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-[#5E503F] sm:text-sm sm:leading-6"
                 placeholder="Choose a category"
               />
             </div>
@@ -95,7 +95,7 @@ export default function NewQuestion() {
                 name="creator"
                 type="text"
                 required
-                className="min-w-0 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
+                className="min-w-0 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-[#5E503F] shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-[#5E503F] sm:text-sm sm:leading-6"
                 placeholder="creator name"
               />
             </div>
@@ -104,7 +104,7 @@ export default function NewQuestion() {
           <div className="flex items-center justify-center">
             <button
               onClick={handleSubmit}
-              className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-500 hover:bg-indigo-600 md:py-4 md:text-lg md:px-10"
+              className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-[#FDF2D8] bg-[#5E503F] hover:bg-[#C6AC8F] md:py-4 md:text-lg md:px-10"
             >
               Create
             </button>
