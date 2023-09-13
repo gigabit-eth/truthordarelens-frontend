@@ -18,6 +18,14 @@ export default function Vote() {
       <div className="flex flex-col items-center justify-center w-full h-full">
         <Branding />
       </div>
+      <div className="">
+        <h1 className="text-3xl font-bold text-center uppercase text-gray-900 dark:text-gray-100">
+          Leaderboard
+        </h1>
+        <h2 className="mt-2 mb-6 tracking-wide lowercase italic text-xs text-center">
+          Coming soon
+        </h2>
+      </div>
       <div className="relative flex items-center justify-center w-full h-full flex-grow">
         <Image
           className="opacity-5"

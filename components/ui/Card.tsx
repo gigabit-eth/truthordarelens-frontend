@@ -151,7 +151,7 @@ export default function QuestionCard() {
           >
             <div className="flex min-w-0 gap-x-4">
               <Image
-                className="blur h-12 w-12 flex-none rounded-full bg-gray-50"
+                className="h-12 w-12 flex-none rounded-full bg-gray-50"
                 src="/tod.svg" // replace with a default image as there is no imageUrl in the provided schema
                 alt=""
                 width={256}
@@ -164,7 +164,7 @@ export default function QuestionCard() {
                     {question.question}
                   </Link>
                 </p>
-                <p className="mt-1 flex text-xs leading-5 text-gray-500 blur-sm">
+                <p className="mt-1 flex text-xs leading-5 text-gray-500">
                   <Link
                     href={`mailto:${question.creator}`}
                     className="relative truncate hover:underline"

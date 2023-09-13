@@ -20,6 +20,14 @@ export default function Create() {
         <div className="">
           <Branding />
         </div>
+        <div className="">
+          <h1 className="text-3xl font-bold text-center uppercase text-gray-900 dark:text-gray-100">
+            Be a Creator
+          </h1>
+          <h2 className="mt-2 mb-6 tracking-wide lowercase italic text-xs text-center">
+            leave your mark
+          </h2>
+        </div>
         {/* <div className="">
           <SearchBar />
         </div> */}
