@@ -16,9 +16,9 @@ export default function Vote() {
       </Head>
       <TopNav />
       <div className="flex flex-col items-center justify-center w-full h-full">
-        <Branding />
+        {/* <Branding /> */}
       </div>
-      <div className="">
+      <div className="mt-12">
         <h1 className="text-3xl font-bold text-center uppercase text-gray-900 dark:text-gray-100">
           Leaderboard
         </h1>

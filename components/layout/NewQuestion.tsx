@@ -58,8 +58,9 @@ export default function NewQuestion() {
               Create a new question
             </h2>
             <p className="mt-4 text-lg leading-8 text-gray-700 dark:text-gray-400">
-              Nostrud amet eu ullamco nisi aute in ad minim nostrud adipisicing
-              velit quis. Duis tempor incididunt dolore.
+              Whether you are looking to challenge your friends, uncover deep
+              secrets, or simply have a laugh, Truth o/r Dare offers an engaging
+              experience tailored for memorable moments.
             </p>
             <div className="mt-6 flex max-w-md gap-x-4">
               <label htmlFor="email-address" className="sr-only">

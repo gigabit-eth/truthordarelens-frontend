@@ -11,8 +11,8 @@ export default function BottomNav() {
         <a
           className={`flex items-center justify-center w-1/3 py-4 text-center ${
             isActive("/")
-              ? "dark:text-[#FFEBB8] text-[#C6AC8F]"
-              : "text-zinc-700"
+              ? "dark:text-[#FFEBB8] text-zinc-700"
+              : " text-[#C6AC8F]"
           }`}
         >
           <QuestionIcon className="p-px w-7 h-7" />
@@ -22,8 +22,8 @@ export default function BottomNav() {
         <a
           className={`flex items-center justify-center w-1/3 py-4 text-center ${
             isActive("/new")
-              ? "dark:text-[#FFEBB8] text-[#C6AC8F]"
-              : "text-zinc-700"
+              ? "dark:text-[#FFEBB8] text-zinc-700"
+              : " text-[#C6AC8F]"
           }`}
         >
           <CreateIcon className="p-px w-7 h-7" />
@@ -33,8 +33,8 @@ export default function BottomNav() {
         <a
           className={`flex items-center justify-center w-1/3 py-4 text-center ${
             isActive("/leaderboard")
-              ? "dark:text-[#FFEBB8] text-[#C6AC8F]"
-              : "text-zinc-700"
+              ? "dark:text-[#FFEBB8] text-zinc-700"
+              : " text-[#C6AC8F]"
           }`}
         >
           <VoteIcon className="p-px w-7 h-7" />

@@ -34,33 +34,6 @@ const createTable = async () => {
 
 // createTable();
 
-const people = [
-  {
-    name: "What is the most recent life lesson you've learned?",
-    email: "@leslie.lens",
-    role: "Co-Founder / CEO",
-    imageUrl:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    href: "#",
-    lastSeen: "3h ago",
-    width: 256,
-    height: 256,
-    lastSeenDateTime: "2023-01-23T13:23Z",
-  },
-  {
-    name: "If you could only listen to 3 songs for the rest of your life, which ones would they be?",
-    email: "@example.eth",
-    role: "Co-Founder / CTO",
-    imageUrl:
-      "https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    href: "#",
-    width: 256,
-    height: 256,
-    lastSeen: "3h ago",
-    lastSeenDateTime: "2023-01-23T13:23Z",
-  },
-];
-
 interface Schema {
   id: number;
   question: string;
@@ -75,6 +48,9 @@ export default function QuestionCard() {
   const [hasMore, setHasMore] = useState(true);
   const [fetching, setFetching] = useState(false); // for infinite scroll
   const loader = useRef(null);
+  const [pageSize, setPageSize] = useState(10);
+
+  const questionsRef = useRef<Array<Schema>>([]);
 
   const fetchData = useCallback(
     async (page: number, pageSize: number) => {
@@ -99,7 +75,17 @@ export default function QuestionCard() {
           setHasMore(false);
         }
 
-        setQuestions((prevQuestions) => [...prevQuestions, ...results]);
+        // Filter out any duplicates
+        const newQuestions = results.filter(
+          (result) =>
+            !questionsRef.current.some((question) => question.id === result.id)
+        );
+
+        setQuestions((prevQuestions) => {
+          const updatedQuestions = [...prevQuestions, ...newQuestions];
+          questionsRef.current = updatedQuestions;
+          return updatedQuestions;
+        });
       } catch (error) {
         console.error("Error fetching data from database:", error);
       } finally {
@@ -116,11 +102,19 @@ export default function QuestionCard() {
       if (target.isIntersecting) {
         const newPage = page + 1;
         setPage(newPage);
-        fetchData(newPage, 10);
+        fetchData(newPage, pageSize);
       }
     },
-    [page, fetchData]
+    [page, fetchData, pageSize]
   );
+
+  // Add a function to change pageSize
+  const changePageSize = (newSize: number) => {
+    setPageSize(newSize);
+    // Reset page and questions when pageSize changes
+    setPage(1);
+    setQuestions([]);
+  };
 
   useEffect(() => {
     var options = {
@@ -135,8 +129,8 @@ export default function QuestionCard() {
   }, [handleObserver]);
 
   useEffect(() => {
-    fetchData(page, 10);
-  }, [fetchData, page]);
+    fetchData(page, pageSize);
+  }, [fetchData, page, pageSize]);
 
   return (
     <>

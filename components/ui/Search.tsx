@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { useRouter } from "next/router";
 import { Database } from "@tableland/sdk";
 
@@ -11,43 +11,40 @@ interface Schema {
 }
 
 export default function SearchBar() {
+  const [questions, setQuestions] = useState<Array<Schema>>([]);
   const [searchTerm, setSearchTerm] = useState("");
   const router = useRouter();
 
-  const handleSearch = async () => {
+  const handleSearch = useCallback(async (term: string) => {
     const tableName: string = "Truth_or_Dare_80001_7170";
     const db: Database<Schema> = new Database();
 
     try {
       const response = await db
-        .prepare(`SELECT * FROM ${tableName} WHERE question MATCH ?;`)
-        .bind(searchTerm)
+        .prepare(`SELECT * FROM ${tableName} WHERE question LIKE ?;`)
+        .bind(`%${term}%`)
         .all();
-
       const results = response.results;
 
-      if (results.length > 0) {
-        // Navigate to the first result
-        router.push(`/question/${results[0].id}`);
-      }
+      setQuestions(results);
     } catch (error) {
-      console.error("Error fetching data from database:", error);
+      console.error("Error searching database:", error);
     }
-  };
+  }, []);
 
   return (
     <div>
       <div className="mt-2">
         <input
           type="text"
-          name="name"
-          id="name"
+          value={searchTerm}
+          id="search"
           onChange={(e) => setSearchTerm(e.target.value)}
           onKeyDown={async (e) => {
             console.log("Key pressed", e.key);
             if (e.key === "Enter") {
               console.log("Enter key pressed. Calling handleSearch...");
-              await handleSearch();
+              await handleSearch(searchTerm);
             }
           }}
           className="block w-full rounded-full border-0 px-4 py-1.5 bg-[#FDF2D8] dark:bg-zinc-900 text-yellow-800 dark:text-[#FFEBB8] shadow-sm ring-1 ring-inset ring-zinc-800 placeholder:text-gray-600 focus:placeholder:text-gray-700 dark:focus:placeholder:text-gray-300 focus:ring-2 focus:ring-inset focus:ring-gray-600 sm:text-sm sm:leading-6 text-center"
