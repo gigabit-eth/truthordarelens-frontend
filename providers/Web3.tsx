@@ -88,12 +88,6 @@ const Web3Provider = (props: Props) => {
             accentColor: "green",
           }),
         }}
-        // theme={darkTheme({
-        //   ...darkTheme.accentColors.green,
-        //   overlayBlur: "small",
-        //   accentColorForeground: "#fff",
-        //   fontStack: "system",
-        // })}
         appInfo={{
           appName: "Truth o/r Dare",
           learnMoreUrl: "https://truthordare.lol/about",

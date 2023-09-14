@@ -13,7 +13,7 @@ import {
 
 export const ETH_CHAINS = [
   // mainnet,
-  polygon,
+  // polygon,
   // sepolia,
   polygonMumbai,
   // polygonZkEvm,

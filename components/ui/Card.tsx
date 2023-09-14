@@ -14,15 +14,24 @@ const createTable = async () => {
     question: string;
     category: string;
     creator: string;
+    amount: number;
+    collectLimit: number;
+    currency: string;
+    referralFee: number;
+    followerOnly: boolean;
+    endTimestamp: number;
+    currentCollects: number;
+    recipients: Array<string>;
+    uniqueId: string;
   }
 
   const db = new Database<Schema>();
 
-  const prefix: string = "Truth_or_Dare";
+  const prefix: string = "TOD_Project";
 
   const { meta: create } = await db
     .prepare(
-      `CREATE TABLE ${prefix} (id INTEGER PRIMARY KEY, question TEXT, category TEXT, creator TEXT);`
+      `CREATE TABLE ${prefix} (id INTEGER PRIMARY KEY, question TEXT, category TEXT, creator TEXT, amount NUMBER, collectLimit NUMBER, currency TEXT, referralFee NUMBER, followerOnly BOOL, endTimestamp NUMBER, currentCollects NUMBER, recipients ARRAY, uniqueId TEXT);`
     )
     .run();
 
@@ -147,7 +156,7 @@ export default function QuestionCard() {
             <div className="flex min-w-0 gap-x-4">
               <Image
                 className="h-12 w-12 flex-none rounded-full bg-gray-50"
-                src="/tod.svg" // replace with a default image as there is no imageUrl in the provided schema
+                src="/tod.png" // replace with a default image as there is no imageUrl in the provided schema
                 alt=""
                 width={256}
                 height={256}
