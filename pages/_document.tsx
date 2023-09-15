@@ -12,7 +12,7 @@ export default function Document() {
         <meta name="apple-mobile-web-app-status-bar-style" content="black" />
         <meta
           name="theme-color"
-          content="#FDEED8"
+          content="#000000"
           media="(prefers-color-scheme: dark)"
         />
 
