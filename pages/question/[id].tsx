@@ -71,7 +71,7 @@ export default function Question() {
       {/* <Branding /> */}
       <div className="flex flex-col items-center justify-center w-full h-full">
         <div className="dark:bg-[#1D1A1C] py-16 sm:py-24">
-          <div className="relative items-center mb-6 px-10 z-10">
+          <div className="relative place-items-start mt-6 mb-2 px-4">
             <Button />
           </div>
           <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
