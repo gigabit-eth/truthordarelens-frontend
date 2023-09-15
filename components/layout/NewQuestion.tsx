@@ -82,15 +82,18 @@ export default function NewQuestion() {
               <label htmlFor="email-address" className="sr-only">
                 Category
               </label>
-              <input
+              <select
                 id="category"
-                onChange={(e) => setCategory(e.target.value)}
+                onChange={(e) => setQuestion(e.target.value)}
                 name="category"
-                type="text"
-                required
-                className="min-w-0 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-[#5E503F] shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-[#5E503F] sm:text-sm sm:leading-6"
-                placeholder="Choose a category"
-              />
+                className="mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                defaultValue="Choose Category"
+              >
+                <option>truth</option>
+                <option>dare</option>
+                <option>would you rather</option>
+                <option>never have I ever</option>
+              </select>
             </div>
             <div className="mt-6 flex max-w-md gap-x-4">
               <label htmlFor="email-address" className="sr-only">
