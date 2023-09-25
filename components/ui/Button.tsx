@@ -1,6 +1,12 @@
 import Link from "next/link";
 
-export default function Button() {
+type ButtonProps = {
+  onClick?: () => void;
+  children?: React.ReactNode;
+  className?: string;
+};
+
+const Button: React.FC<ButtonProps> = ({ className, children }) => {
   return (
     <>
       <Link href="/">
@@ -13,4 +19,6 @@ export default function Button() {
       </Link>
     </>
   );
-}
+};
+
+export default Button;

@@ -45,3 +45,7 @@ body {
     padding-bottom: calc(24px + env(safe-area-inset-bottom));
   }
 }
+
+.custom-shadow {
+  box-shadow: 5px 5px 1px 0px #000;
+}
