@@ -10,7 +10,7 @@ export default function TopNav() {
         lg:static lg:w-auto lg:rounded-xl lg:border lg:bg-[#FDEED8] lg:p-4 
         lg:dark:bg-zinc-800/30"
       >
-        truthordare.lens
+        truthordare.lol
       </p>
       <div className="bottom-0 left-0 flex items-end justify-end bg-gradient-to-t from-white via-white dark:from-black dark:via-black static h-auto w-auto lg:bg-none my-2 lg:my-0">
         <ConnectButton

@@ -163,7 +163,7 @@ export default function QuestionCard() {
               />
               <div className="min-w-0 flex-auto">
                 <p className="text-sm uppercase font-semibold leading-6 dark:text-gray-300 text-[#5E503F]">
-                  <Link href={`/question/${question.id}`}>
+                  <Link href={`/q/${question.id}`}>
                     <span className="absolute inset-x-0 -top-px bottom-0" />
                     {question.question}
                   </Link>
