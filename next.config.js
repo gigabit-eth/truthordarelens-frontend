@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ["images.unsplash.com"],
+    domains: ["images.unsplash.com", "i.pravatar.cc"],
   },
   webpack: (config) => {
     config.resolve.fallback = { fs: false, net: false, tls: false };
