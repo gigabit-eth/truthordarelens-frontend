@@ -6,30 +6,30 @@ export default function BottomNav() {
 
   const isActive = (path: string) => router.pathname === path;
   return (
-    <footer className="fixed inset-x-0 bottom-0 flex w-full bg-[#FDEED8] bg-gradient-to-b from-[#FDF2D8] dark:border-neutral-800 dark:bg-[#1D1A1C] dark:from-inherit">
+    <footer className="fixed inset-x-0 bottom-0 flex w-full bg-[#FDEED8] bg-gradient-to-b from-[#FDF2D8] dark:border-neutral-800 dark:bg-[#0D1321] dark:from-inherit">
       <Link legacyBehavior href="/">
         <a
           className={`flex items-center justify-center w-1/2 py-4 text-center ${
             isActive("/")
               ? "dark:text-[#FFEBB8] text-zinc-700"
-              : " text-[#C6AC8F]"
+              : " text-slate-500"
           }`}
         >
           <QuestionIcon className="p-px w-7 h-7" />
         </a>
       </Link>
-      {/* <Link legacyBehavior href="/new">
+      <Link legacyBehavior href="/new">
         <a
           className={`flex items-center justify-center w-1/3 py-4 text-center ${
             isActive("/new")
               ? "dark:text-[#FFEBB8] text-zinc-700"
-              : " text-[#C6AC8F]"
+              : " text-slate-500"
           }`}
         >
           <CreateIcon className="p-px w-7 h-7" />
         </a>
-      </Link> */}
-      <Link legacyBehavior href="/leaderboard">
+      </Link>
+      {/* <Link legacyBehavior href="/leaderboard">
         <a
           className={`flex items-center justify-center w-1/2 py-4 text-center ${
             isActive("/leaderboard")
@@ -39,7 +39,7 @@ export default function BottomNav() {
         >
           <VoteIcon className="p-px w-7 h-7" />
         </a>
-      </Link>
+      </Link> */}
 
       {/* <Link legacyBehavior href="/groups">
         <a
@@ -75,14 +75,16 @@ function QuestionIcon({ className }: IconProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
+      fill="none"
       viewBox="0 0 24 24"
-      fill="currentColor"
+      strokeWidth="1.5"
+      stroke="currentColor"
       className="w-6 h-6"
     >
       <path
-        fillRule="evenodd"
-        d="M1.5 5.625c0-1.036.84-1.875 1.875-1.875h17.25c1.035 0 1.875.84 1.875 1.875v12.75c0 1.035-.84 1.875-1.875 1.875H3.375A1.875 1.875 0 011.5 18.375V5.625zM21 9.375A.375.375 0 0020.625 9h-7.5a.375.375 0 00-.375.375v1.5c0 .207.168.375.375.375h7.5a.375.375 0 00.375-.375v-1.5zm0 3.75a.375.375 0 00-.375-.375h-7.5a.375.375 0 00-.375.375v1.5c0 .207.168.375.375.375h7.5a.375.375 0 00.375-.375v-1.5zm0 3.75a.375.375 0 00-.375-.375h-7.5a.375.375 0 00-.375.375v1.5c0 .207.168.375.375.375h7.5a.375.375 0 00.375-.375v-1.5zM10.875 18.75a.375.375 0 00.375-.375v-1.5a.375.375 0 00-.375-.375h-7.5a.375.375 0 00-.375.375v1.5c0 .207.168.375.375.375h7.5zM3.375 15h7.5a.375.375 0 00.375-.375v-1.5a.375.375 0 00-.375-.375h-7.5a.375.375 0 00-.375.375v1.5c0 .207.168.375.375.375zm0-3.75h7.5a.375.375 0 00.375-.375v-1.5A.375.375 0 0010.875 9h-7.5A.375.375 0 003 9.375v1.5c0 .207.168.375.375.375z"
-        clipRule="evenodd"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M5.25 14.25h13.5m-13.5 0a3 3 0 01-3-3m3 3a3 3 0 100 6h13.5a3 3 0 100-6m-16.5-3a3 3 0 013-3h13.5a3 3 0 013 3m-19.5 0a4.5 4.5 0 01.9-2.7L5.737 5.1a3.375 3.375 0 012.7-1.35h7.126c1.062 0 2.062.5 2.7 1.35l2.587 3.45a4.5 4.5 0 01.9 2.7m0 0a3 3 0 01-3 3m0 3h.008v.008h-.008v-.008zm0-6h.008v.008h-.008v-.008zm-3 6h.008v.008h-.008v-.008zm0-6h.008v.008h-.008v-.008z"
       />
     </svg>
   );
@@ -109,14 +111,16 @@ function CreateIcon({ className }: IconProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
+      fill="none"
       viewBox="0 0 24 24"
-      fill="currentColor"
+      strokeWidth="1.5"
+      stroke="currentColor"
       className="w-6 h-6"
     >
       <path
-        fillRule="evenodd"
-        d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zM12.75 9a.75.75 0 00-1.5 0v2.25H9a.75.75 0 000 1.5h2.25V15a.75.75 0 001.5 0v-2.25H15a.75.75 0 000-1.5h-2.25V9z"
-        clipRule="evenodd"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10"
       />
     </svg>
   );

@@ -74,7 +74,7 @@ export default function Question() {
       <TopNav />
       {/* <Branding /> */}
       <div className="flex flex-col items-center justify-center w-full h-full">
-        <div className="dark:bg-[#1D1A1C] py-16 sm:py-24">
+        <div className="dark:bg-[#0D1321] py-16 sm:py-24">
           <div className="flex flex-row justify-between mt-6 mb-2 px-4">
             <Button className="flex-1" />
           </div>

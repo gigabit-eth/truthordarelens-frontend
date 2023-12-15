@@ -1,20 +1,11 @@
 "use client";
 /* eslint-disable react/no-children-prop */
-import "@rainbow-me/rainbowkit/styles.css";
+
 import {
-  connectorsForWallets,
-  RainbowKitProvider,
-  lightTheme,
-  darkTheme,
-} from "@rainbow-me/rainbowkit";
-import {
-  injectedWallet,
-  metaMaskWallet,
-  trustWallet,
-  walletConnectWallet,
-  ledgerWallet,
-  coinbaseWallet,
-} from "@rainbow-me/rainbowkit/wallets";
+  ConnectKitProvider,
+  ConnectKitButton,
+  getDefaultConfig,
+} from "connectkit";
 
 import { configureChains, createConfig, WagmiConfig } from "wagmi";
 import { publicProvider } from "wagmi/providers/public";
@@ -39,31 +30,31 @@ const { chains, publicClient, webSocketPublicClient } = configureChains(
   [publicProvider()]
 );
 
-const connectors = connectorsForWallets([
-  {
-    groupName: "Recommended",
-    wallets: [
-      injectedWallet({ chains }),
-      metaMaskWallet({ projectId, chains }),
-      walletConnectWallet({ projectId, chains }),
-    ],
-  },
-  {
-    groupName: "Others",
-    wallets: [
-      trustWallet({ projectId, chains }),
-      ledgerWallet({ projectId, chains }),
-      coinbaseWallet({ chains, appName: "TRUTH O/R DARE" }),
-    ],
-  },
-]);
+const alchemyId = process.env.NEXT_PUBLIC_ALCHEMY_ID;
+const walletConnectProjectId =
+  process.env.NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID;
 
-const wagmiConfig = createConfig({
-  autoConnect: true,
-  connectors,
-  publicClient,
-  webSocketPublicClient,
-});
+if (!alchemyId || !walletConnectProjectId) {
+  throw new Error(
+    "Environment variables ALCHEMY_ID and WALLETCONNECT_PROJECT_ID must be defined"
+  );
+}
+
+const config = createConfig(
+  getDefaultConfig({
+    // Required API Keys
+    alchemyId,
+    walletConnectProjectId,
+
+    // Required
+    appName: "Your App Name",
+
+    // Optional
+    appDescription: "Your App Description",
+    appUrl: "https://truthordare.lol", // your app's url
+    appIcon: "https://family.co/logo.png", // your app's icon, no bigger than 1024x1024px (max. 1MB)
+  })
+);
 
 // const lensConfig: LensConfig = {
 //   bindings: wagmiBindings(),
@@ -72,29 +63,9 @@ const wagmiConfig = createConfig({
 
 const Web3Provider = (props: Props) => {
   return (
-    <WagmiConfig config={wagmiConfig}>
+    <WagmiConfig config={config}>
       {/* <LensProvider config={lensConfig}> */}
-      <RainbowKitProvider
-        chains={chains}
-        theme={{
-          lightMode: lightTheme({
-            overlayBlur: "small",
-            fontStack: "system",
-          }),
-          darkMode: darkTheme({
-            overlayBlur: "small",
-            fontStack: "system",
-            accentColorForeground: "#fff",
-            accentColor: "green",
-          }),
-        }}
-        appInfo={{
-          appName: "Truth o/r Dare",
-          learnMoreUrl: "https://truthordare.lol/about",
-        }}
-      >
-        {props.children}
-      </RainbowKitProvider>
+      <ConnectKitProvider>{props.children}</ConnectKitProvider>
       {/* </LensProvider> */}
     </WagmiConfig>
   );

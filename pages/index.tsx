@@ -5,6 +5,7 @@ import { TopNav, BottomNav } from "@/components/layout";
 import QuestionCard from "@/components/ui/Card";
 import SearchBar from "@/components/ui/Search";
 import Branding from "@/components/layout/Branding";
+import Hero from "@/components/ui/Hero";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -29,11 +30,12 @@ export default function Home() {
       <TopNav />
       <div className="flex flex-col items-center justify-center w-full h-full">
         <div className="">
-          <Branding />
+          {/* <Branding /> */}
+          {/* <Hero /> */}
         </div>
-        <div className="">
+        {/* <div className="">
           <SearchBar />
-        </div>
+        </div> */}
         <div className="mt-12 mb-24">
           <QuestionCard />
         </div>
