@@ -6,6 +6,7 @@ import QuestionCard from "@/components/ui/Card";
 import SearchBar from "@/components/ui/Search";
 import Branding from "@/components/layout/Branding";
 import Hero from "@/components/ui/Hero";
+import ShuffleCards from "@/components/ui/QHolder";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -37,7 +38,8 @@ export default function Home() {
           <SearchBar />
         </div> */}
         <div className="mt-12 mb-24">
-          <QuestionCard />
+          {/* <QuestionCard /> */}
+          <ShuffleCards />
         </div>
       </div>
       <BottomNav />

@@ -20,7 +20,7 @@ export default function BottomNav() {
       </Link>
       <Link legacyBehavior href="/new">
         <a
-          className={`flex items-center justify-center w-1/3 py-4 text-center ${
+          className={`flex items-center justify-center w-1/2 py-4 text-center ${
             isActive("/new")
               ? "dark:text-[#FFEBB8] text-zinc-700"
               : " text-slate-500"
