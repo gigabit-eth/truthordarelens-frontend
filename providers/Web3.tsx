@@ -47,12 +47,12 @@ const config = createConfig(
     walletConnectProjectId,
 
     // Required
-    appName: "Your App Name",
+    appName: "Truth o/r Dare",
 
     // Optional
-    appDescription: "Your App Description",
+    appDescription: "Social Conversation platform for Web3.",
     appUrl: "https://truthordare.lol", // your app's url
-    appIcon: "https://family.co/logo.png", // your app's icon, no bigger than 1024x1024px (max. 1MB)
+    appIcon: "https://truthordare.lol/tod.png", // your app's icon, no bigger than 1024x1024px (max. 1MB)
   })
 );
 

@@ -155,7 +155,7 @@ export default function QuestionCard() {
           >
             <div className="flex min-w-0 gap-x-4">
               <Image
-                className="h-12 w-12 flex-none rounded-full bg-gray-50"
+                className="h-12 w-12 flex-none rounded-full bg-transparent"
                 src="/tod.png" // replace with a default image as there is no imageUrl in the provided schema
                 alt=""
                 width={256}
