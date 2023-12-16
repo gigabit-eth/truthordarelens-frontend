@@ -7,7 +7,7 @@ export default function TopNav() {
         className="fixed left-0 top-0 flex w-full justify-start px-4 
         bg-gradient-to-t from-[#FDEED8] pb-6 pt-8 backdrop-blur-2xl border-[#5E503F] 
         dark:border-neutral-800 dark:bg-[#0D1321] dark:from-inherit 
-        lg:static lg:w-auto lg:rounded-xl lg:border lg:bg-[#FDEED8] lg:p-4 
+        lg:static lg:w-auto lg:bg-[#FDEED8] lg:p-4 
         lg:dark:bg-[#0D1321]"
       >
         truthordare.lol
