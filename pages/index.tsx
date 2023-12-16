@@ -36,6 +36,7 @@ export default function Home() {
             "🐦 How many chances do you give a person before you write them off?",
             "🪴 Would you rather not be able to wear clothes or not be able to speak?",
             "🐘 Which super power would you rather have, night vision or a heightened senses in smell and hearing?",
+            "📢 What time period in history do you find most interesting?",
           ]}
         />
         <div className="mt-2">

@@ -9,10 +9,8 @@ const Ticker = ({ news }: TickerProps) => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setPlayState((prevState) =>
-        prevState === "running" ? "paused" : "running"
-      );
-    }, 15000); // Change play state every 5 seconds
+      setPlayState("running");
+    }, 100); // Start scrolling after 5 seconds
 
     return () => clearInterval(interval); // Clean up on unmount
   }, []);
@@ -22,7 +20,11 @@ const Ticker = ({ news }: TickerProps) => {
       <div className="flex gap-4 px-2">
         <div
           className="ticker flex gap-2"
-          style={{ animationPlayState: playState }}
+          style={{
+            animation: `${
+              playState === "running" ? "scroll 150s linear infinite" : "none"
+            }`,
+          }}
         >
           {news.map((item, index) => (
             <div
