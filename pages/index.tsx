@@ -30,6 +30,7 @@ export default function Home() {
         />
       </Head>
       <TopNav />
+      <Ticker />
       <div className="flex flex-col items-center justify-center w-full h-full">
         <div className="">
           {/* <Ticker
