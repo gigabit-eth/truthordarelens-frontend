@@ -19,7 +19,7 @@ export default function Home() {
 
   return (
     <main
-      className={`flex min-h-screen flex-col items-center justify-between pt-24 ${inter.className}`}
+      className={`flex max-h-screen flex-col items-center justify-between pt-24 ${inter.className}`}
     >
       <Head>
         <title>{SITE_NAME}</title>
@@ -30,8 +30,8 @@ export default function Home() {
         />
       </Head>
       <TopNav />
-      <Ticker />
       <div className="flex flex-col items-center justify-center w-full h-full">
+        <Ticker />
         <div className="">
           {/* <Ticker
             news={[
@@ -46,7 +46,7 @@ export default function Home() {
         {/* <div className="">
           <SearchBar />
         </div> */}
-        <div className="mt-12 mb-24">
+        <div className="">
           {/* <QuestionCard /> */}
           <ShuffleCards />
         </div>
