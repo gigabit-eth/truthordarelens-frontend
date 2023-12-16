@@ -38,7 +38,7 @@ export default function Home() {
             "Which super power would you rather have, night vision or a heightened senses in smell and hearing?",
           ]}
         /> */}
-        <div className="mt-4">
+        <div className="mt-2">
           {/* <Branding /> */}
           {/* <Hero /> */}
         </div>
