@@ -37,7 +37,7 @@ const TerminalHeader = () => {
       <div className="w-3 h-3 rounded-full bg-yellow-500" />
       <div className="w-3 h-3 rounded-full bg-green-500" />
       <span className="text-xs sm:text-sm text-[#1d1d1d] dark:text-slate-200 font-semibold absolute left-[50%] -translate-x-[50%] truncate uppercase">
-        👩‍💻 add new questions to the queue
+        👩‍💻 add to the database 🌐
       </span>
     </div>
   );

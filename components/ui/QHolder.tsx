@@ -165,7 +165,7 @@ const Card = ({
       <Image
         src={imgUrl}
         alt={`Image of ${author}`}
-        className="pointer-events-none mx-auto h-32 w-32 rounded-full border-2 border-[#E6E2D0] dark:border-slate-800 bg-[#E6E2D0] object-cover"
+        className="pointer-events-none mx-auto h-32 w-32 rounded-full border-2 border-[#A79E97] dark:border-slate-800 bg-[#E6E2D0] object-cover"
         width={width}
         height={height}
       />

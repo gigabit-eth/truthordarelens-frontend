@@ -65,7 +65,7 @@ const Web3Provider = (props: Props) => {
   return (
     <WagmiConfig config={config}>
       {/* <LensProvider config={lensConfig}> */}
-      <ConnectKitProvider>{props.children}</ConnectKitProvider>
+      <ConnectKitProvider theme="retro">{props.children}</ConnectKitProvider>
       {/* </LensProvider> */}
     </WagmiConfig>
   );
