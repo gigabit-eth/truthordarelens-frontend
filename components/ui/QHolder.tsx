@@ -158,21 +158,21 @@ const Card = ({
       transition={{
         duration: 0.35,
       }}
-      className={`absolute left-0 top-0 grid h-[450px] w-[350px] select-none place-content-center space-y-6 rounded-2xl border-2 border-[#f6dbbd] bg-[#f9e5c4]/40 p-6 shadow-xl backdrop-blur-md ${
+      className={`absolute left-0 top-0 grid h-[450px] w-[350px] select-none place-content-center space-y-6 rounded-2xl border-2 border-[#f6dbbd] dark:border-slate-900 bg-[#f9e5c4]/40 dark:bg-slate-700/80 bg-noise-100 p-6 shadow-xl backdrop-blur-md ${
         draggable ? "cursor-grab active:cursor-grabbing" : ""
       }`}
     >
       <Image
         src={imgUrl}
         alt={`Image of ${author}`}
-        className="pointer-events-none mx-auto h-32 w-32 rounded-full border-2 border-[#f6dbbd] bg-slate-200 object-cover"
+        className="pointer-events-none mx-auto h-32 w-32 rounded-full border-2 border-[#f6dbbd] dark:border-slate-800 bg-slate-200 object-cover"
         width={width}
         height={height}
       />
-      <span className="text-center text-lg italic text-[#671d1d]">
+      <span className="text-center text-lg italic text-[#671d1d] dark:text-white">
         {testimonial}
       </span>
-      <span className="text-center text-sm font-medium text-[#370617]">
+      <span className="text-center text-sm font-medium text-[#370617] dark:text-[#f6dbbd]">
         {author}
       </span>
     </motion.div>
