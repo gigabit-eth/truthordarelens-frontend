@@ -32,13 +32,13 @@ export default function Home() {
       <TopNav />
       <div className="flex flex-col items-center justify-center w-full h-full">
         <div className="">
-          <Ticker
+          {/* <Ticker
             news={[
               "How many chances do you give a person before you write them off?",
               "Would you rather not be able to wear clothes or not be able to speak?",
               "Which super power would you rather have, night vision or a heightened senses in smell and hearing?",
             ]}
-          />
+          /> */}
           {/* <Branding /> */}
           {/* <Hero /> */}
         </div>
