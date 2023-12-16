@@ -137,7 +137,7 @@ const Ticker = ({ news }: TickerProps) => {
   }, []);
 
   return (
-    <div className="sticky left-0 right-0 top-0 z-50 w-full dark:bg-[#141b2d] bg-[#FCE5C6] px-2 py-0.5 text-slate-600 dark:text-[#FDF2D8] lg:py-2.5">
+    <div className="sticky left-0 right-0 top-0 z-50 w-full dark:bg-[#141b2d] bg-[#FCE5C6] px-2 py-4 text-slate-600 dark:text-[#FDF2D8] lg:py-2.5">
       <div className="mx-auto flex w-fit max-w-5xl flex-wrap items-center justify-center gap-x-4 text-xs md:text-sm">
         <div className="ticker" style={{ animationPlayState: playState }}>
           {news.map((item, index) => (
