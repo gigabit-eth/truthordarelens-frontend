@@ -58,7 +58,7 @@ const ShuffleCards = () => {
           imgUrl="https://i.pravatar.cc/300"
           width={350}
           height={450}
-          testimonial="I feel like I've learned as much from X as I did completing my masters. It's the first thing I read every morning."
+          testimonial="What's something in your fridge right now that should probably be thrown away?"
           author="@jenny"
           handleDragEnd={handleDragEnd}
           dragProgress={dragProgress}
@@ -68,7 +68,7 @@ const ShuffleCards = () => {
           imgUrl="https://i.pravatar.cc/300"
           width={350}
           height={450}
-          testimonial="My boss thinks I know what I'm doing. Honestly, I just read this newsletter."
+          testimonial="What time period in history do you find most interesting?"
           author="@lloyd"
           handleDragEnd={handleDragEnd}
           dragProgress={dragProgress}
@@ -78,7 +78,7 @@ const ShuffleCards = () => {
           imgUrl="https://i.pravatar.cc/300"
           width={350}
           height={450}
-          testimonial="Can not believe this is free. If X was $5,000 a month, it would be worth every penny. I plan to name my next child after X."
+          testimonial="What would make you lie for your friend?"
           author="@truthordare"
           handleDragEnd={handleDragEnd}
           dragProgress={dragProgress}
