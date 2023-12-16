@@ -22,7 +22,7 @@ const TerminalContact = () => {
       onClick={() => {
         inputRef.current?.focus();
       }}
-      className="h-96 bg-[#DED6C8]/90 dark:bg-slate-950/70 backdrop-blur rounded-lg w-full max-w-3xl mx-auto overflow-y-scroll shadow-xl cursor-text font-mono"
+      className="h-96 bg-[#221A05]/90 dark:bg-slate-950/70 backdrop-blur rounded-lg w-full max-w-3xl mx-auto overflow-y-scroll shadow-xl cursor-text font-mono"
     >
       <TerminalHeader />
       <TerminalBody inputRef={inputRef} containerRef={containerRef} />
@@ -36,8 +36,8 @@ const TerminalHeader = () => {
       <div className="w-3 h-3 rounded-full bg-red-500" />
       <div className="w-3 h-3 rounded-full bg-yellow-500" />
       <div className="w-3 h-3 rounded-full bg-green-500" />
-      <span className="text-sm text-[#260F1F] dark:text-slate-200 font-semibold absolute left-[50%] -translate-x-[50%]">
-        👩‍💻 add new questions to the database queue
+      <span className="text-xs sm:text-sm text-[#000000] dark:text-slate-200 font-semibold absolute left-[50%] -translate-x-[50%] truncate">
+        👩‍💻 add new questions to the queue
       </span>
     </div>
   );
@@ -94,7 +94,7 @@ const TerminalBody = ({ containerRef, inputRef }: TerminalBodyProps) => {
 const InitialText = () => {
   return (
     <>
-      <p className="text-[#CA2014] dark:text-slate-200">
+      <p className="text-[#DBC63D] dark:text-slate-200">
         Hey! You ready to spark some conversations? 🤠{" "}
       </p>
       <p className="whitespace-nowrap overflow-hidden font-light text-[#999376] dark:text-slate-200">
@@ -137,7 +137,7 @@ const CurrentQuestion = ({ curQuestion }: CurrentQuestionProps) => {
     <p>
       {curQuestion.text || ""}
       {curQuestion.postfix && (
-        <span className="text-violet-300">{curQuestion.postfix}</span>
+        <span className="text-[#A072A2]">{curQuestion.postfix}</span>
       )}
     </p>
   );
@@ -175,7 +175,7 @@ const Summary = ({ questions, setQuestions }: SummaryProps) => {
       {complete ? (
         <p className="text-emerald-300">
           <FiCheckCircle className="inline-block mr-2" />
-          <span>One more step! We have to save it to the blockchain 😎</span>
+          <span>Now you just need a creator badge 😎</span>
         </p>
       ) : (
         <div className="flex gap-2 mt-2">
