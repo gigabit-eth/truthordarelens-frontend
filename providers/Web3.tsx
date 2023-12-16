@@ -65,7 +65,33 @@ const Web3Provider = (props: Props) => {
   return (
     <WagmiConfig config={config}>
       {/* <LensProvider config={lensConfig}> */}
-      <ConnectKitProvider theme="retro">{props.children}</ConnectKitProvider>
+      <ConnectKitProvider
+        theme="retro"
+        options={{
+          disclaimer: (
+            <>
+              By connecting your wallet you agree to the{" "}
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://en.wikipedia.org/wiki/Terms_of_service"
+              >
+                Terms of Service
+              </a>{" "}
+              and{" "}
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://en.wikipedia.org/wiki/Privacy_policy"
+              >
+                Privacy Policy
+              </a>
+            </>
+          ),
+        }}
+      >
+        {props.children}
+      </ConnectKitProvider>
       {/* </LensProvider> */}
     </WagmiConfig>
   );
