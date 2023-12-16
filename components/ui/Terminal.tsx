@@ -22,7 +22,7 @@ const TerminalContact = () => {
       onClick={() => {
         inputRef.current?.focus();
       }}
-      className="h-96 bg-[#221A05]/90 dark:bg-slate-950/70 backdrop-blur rounded-lg w-full max-w-3xl mx-auto overflow-y-scroll shadow-xl cursor-text font-mono"
+      className="h-96 bg-[#E6E2D0]/90 dark:bg-slate-950/70 backdrop-blur rounded-lg w-full max-w-3xl mx-auto overflow-y-scroll shadow-xl cursor-text font-mono"
     >
       <TerminalHeader />
       <TerminalBody inputRef={inputRef} containerRef={containerRef} />
@@ -36,7 +36,7 @@ const TerminalHeader = () => {
       <div className="w-3 h-3 rounded-full bg-red-500" />
       <div className="w-3 h-3 rounded-full bg-yellow-500" />
       <div className="w-3 h-3 rounded-full bg-green-500" />
-      <span className="text-xs sm:text-sm text-[#000000] dark:text-slate-200 font-semibold absolute left-[50%] -translate-x-[50%] truncate">
+      <span className="text-xs sm:text-sm text-[#1d1d1d] dark:text-slate-200 font-semibold absolute left-[50%] -translate-x-[50%] truncate uppercase">
         👩‍💻 add new questions to the queue
       </span>
     </div>
@@ -69,7 +69,7 @@ const TerminalBody = ({ containerRef, inputRef }: TerminalBodyProps) => {
   };
 
   return (
-    <div className="p-2 text-slate-100 text-lg">
+    <div className="p-2 text-[#142CD4] text-lg">
       <InitialText />
       <PreviousQuestions questions={questions} />
       <CurrentQuestion curQuestion={curQuestion} />
@@ -94,11 +94,11 @@ const TerminalBody = ({ containerRef, inputRef }: TerminalBodyProps) => {
 const InitialText = () => {
   return (
     <>
-      <p className="text-[#DBC63D] dark:text-slate-200">
+      <p className="text-[#109DD4] dark:text-slate-200">
         Hey! You ready to spark some conversations? 🤠{" "}
       </p>
-      <p className="whitespace-nowrap overflow-hidden font-light text-[#999376] dark:text-slate-200">
-        ------------------------------------------------------------------------
+      <p className="whitespace-nowrap overflow-hidden font-light text-[#bdb8a3] dark:text-slate-200">
+        {" ‣ ".repeat(50)}
       </p>
     </>
   );
@@ -114,7 +114,7 @@ const PreviousQuestions = ({ questions }: PreviousQuestionProps) => {
               <p>
                 {q.text || ""}
                 {q.postfix && (
-                  <span className="text-violet-300">{q.postfix}</span>
+                  <span className=" text-[#A072A2]">{q.postfix}</span>
                 )}
               </p>
               <p className="text-emerald-300">
@@ -137,7 +137,7 @@ const CurrentQuestion = ({ curQuestion }: CurrentQuestionProps) => {
     <p>
       {curQuestion.text || ""}
       {curQuestion.postfix && (
-        <span className="text-[#A072A2]">{curQuestion.postfix}</span>
+        <span className="text-[#D739D4]">{curQuestion.postfix}</span>
       )}
     </p>
   );
@@ -163,7 +163,7 @@ const Summary = ({ questions, setQuestions }: SummaryProps) => {
 
   return (
     <>
-      <p>Beautiful! Here&aptos;s what we&aptos;ve got:</p>
+      <p>Beautiful! Here&#39;s what we&rsquo;ve got:</p>
       {questions.map((q) => {
         return (
           <p key={q.key}>
@@ -171,7 +171,7 @@ const Summary = ({ questions, setQuestions }: SummaryProps) => {
           </p>
         );
       })}
-      <p>Look good?</p>
+      <p>How does it look?</p>
       {complete ? (
         <p className="text-emerald-300">
           <FiCheckCircle className="inline-block mr-2" />
@@ -248,7 +248,7 @@ const CurLine = ({
       <p>
         <span className="text-emerald-400">➜</span>{" "}
         <span className="text-cyan-300">~</span>{" "}
-        {command && <span className="opacity-50">Enter {command}: </span>}
+        {command && <span className="opacity-50">Submit {command}: </span>}
         {text}
         {focused && (
           <motion.span
@@ -279,13 +279,13 @@ const QUESTIONS: QuestionType[] = [
   },
   {
     key: "prompts",
-    text: "Awesome! and would you like a ",
-    postfix: "AI suggestion?",
+    text: "Awesome! now give our AI  ",
+    postfix: "some prompts",
     complete: false,
     value: "",
   },
   {
-    key: "description",
+    key: "question",
     text: "Perfect, and ",
     postfix: "how can we help you?",
     complete: false,

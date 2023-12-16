@@ -59,7 +59,7 @@ const ShuffleCards = () => {
           width={350}
           height={450}
           testimonial="I feel like I've learned as much from X as I did completing my masters. It's the first thing I read every morning."
-          author="Jenn F. - Marketing Director @ Square"
+          author="@jenny"
           handleDragEnd={handleDragEnd}
           dragProgress={dragProgress}
           position={order[0]}
@@ -69,7 +69,7 @@ const ShuffleCards = () => {
           width={350}
           height={450}
           testimonial="My boss thinks I know what I'm doing. Honestly, I just read this newsletter."
-          author="Adrian Y. - Product Marketing @ Meta"
+          author="@lloyd"
           handleDragEnd={handleDragEnd}
           dragProgress={dragProgress}
           position={order[1]}
@@ -79,7 +79,7 @@ const ShuffleCards = () => {
           width={350}
           height={450}
           testimonial="Can not believe this is free. If X was $5,000 a month, it would be worth every penny. I plan to name my next child after X."
-          author="Devin R. - Growth Marketing Lead @ OpenAI"
+          author="@truthordare"
           handleDragEnd={handleDragEnd}
           dragProgress={dragProgress}
           position={order[2]}
@@ -158,21 +158,21 @@ const Card = ({
       transition={{
         duration: 0.35,
       }}
-      className={`absolute left-0 top-0 grid h-[450px] w-[350px] select-none place-content-center space-y-6 rounded-2xl border-2 border-[#f6dbbd] dark:border-slate-900 bg-[#f9e5c4]/40 dark:bg-slate-700/80 bg-noise-100 p-6 shadow-xl backdrop-blur-md ${
+      className={`absolute left-0 top-0 grid h-[450px] w-[350px] select-none place-content-center space-y-6 rounded-2xl border-0 border-[#A79E97] dark:border-slate-900 bg-[#E6E2D0]/90 dark:bg-slate-700/80 bg-noise-100 p-6 shadow-xl backdrop-blur-md ${
         draggable ? "cursor-grab active:cursor-grabbing" : ""
       }`}
     >
       <Image
         src={imgUrl}
         alt={`Image of ${author}`}
-        className="pointer-events-none mx-auto h-32 w-32 rounded-full border-2 border-[#f6dbbd] dark:border-slate-800 bg-slate-200 object-cover"
+        className="pointer-events-none mx-auto h-32 w-32 rounded-full border-2 border-[#E6E2D0] dark:border-slate-800 bg-[#E6E2D0] object-cover"
         width={width}
         height={height}
       />
-      <span className="text-center text-lg italic text-[#671d1d] dark:text-white">
+      <span className="text-center text-lg italic text-[#142CD4] dark:text-white">
         {testimonial}
       </span>
-      <span className="text-center text-sm font-medium text-[#370617] dark:text-[#f6dbbd]">
+      <span className="text-center text-sm font-medium text-[#D739D4] dark:text-[#f6dbbd]">
         {author}
       </span>
     </motion.div>
