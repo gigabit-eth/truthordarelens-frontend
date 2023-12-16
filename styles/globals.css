@@ -17,6 +17,10 @@
 }
 
 body {
+  overflow-x: hidden; /* Prevents horizontal scrolling */
+  overflow-y: hidden; /* Prevents vertical scrolling */
+  max-width: 100%; /* Ensures the width doesn't exceed the viewport */
+  height: 100vh; /* Sets the height to the full viewport height */
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to top,
