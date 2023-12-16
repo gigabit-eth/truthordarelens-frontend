@@ -156,7 +156,7 @@ body {
   white-space: nowrap;
   padding-left: 100%;
   animation: ticker 80s linear infinite;
-  color: #f6dbbd;
+  color: #333;
 }
 
 @keyframes ticker {

@@ -31,21 +31,14 @@ export default function Home() {
       </Head>
       <TopNav />
       <div className="flex flex-col items-center justify-center w-full h-full">
-        <Ticker
+        {/* <Ticker
           news={[
             "How many chances do you give a person before you write them off?",
             "Would you rather not be able to wear clothes or not be able to speak?",
             "Which super power would you rather have, night vision or a heightened senses in smell and hearing?",
           ]}
-        />
-        <div className="">
-          {/* <Ticker
-            news={[
-              "How many chances do you give a person before you write them off?",
-              "Would you rather not be able to wear clothes or not be able to speak?",
-              "Which super power would you rather have, night vision or a heightened senses in smell and hearing?",
-            ]}
-          /> */}
+        /> */}
+        <div className="mt-4">
           {/* <Branding /> */}
           {/* <Hero /> */}
         </div>
